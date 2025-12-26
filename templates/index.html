@@ -295,6 +295,8 @@
 {% endblock head %}
 
 {% block content %}
+{% set menu_section = get_section(path="menu/_index.md") %}
+{% set days = menu_section.pages %}
 <section class="hero" id="story">
     <div class="hero-content">
         <h1>Birch-lined dining, rooted in Finland</h1>
@@ -322,13 +324,13 @@
         <p>Tap any day to reveal the full plates below, or scroll to the daily section for a richer dive.</p>
     </div>
     <div class="week-grid">
-        {% for day in section.extra.weekly_menu %}
+        {% for day in days %}
         <article class="day-card">
-            <div class="day-label">{{ day.day }}</div>
-            <p class="day-theme">{{ day.theme }}</p>
-            <p class="day-highlight">{{ day.highlight }}</p>
-            <div class="day-mood">{{ day.mood }}</div>
-            <button class="view-detail" data-day-link="{{ day.day }}">See plates</button>
+            <div class="day-label">{{ day.extra.day | default(value=day.title) }}</div>
+            <p class="day-theme">{{ day.extra.theme }}</p>
+            <p class="day-highlight">{{ day.extra.highlight }}</p>
+            <div class="day-mood">{{ day.extra.mood }}</div>
+            <button class="view-detail" data-day-link="{{ day.slug }}">See plates</button>
         </article>
         {% endfor %}
     </div>
@@ -340,18 +342,18 @@
         <p>Hovering over birch bark textures, these plates change weekly yet stay anchored to produce gathered within 150 kilometers.</p>
     </div>
     <div class="daily-tabs">
-        {% for day in section.extra.weekly_menu %}
-        <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.day }}">{{ day.day }}</button>
+        {% for day in days %}
+        <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.slug }}">{{ day.extra.day | default(value=day.title) }}</button>
         {% endfor %}
     </div>
-    {% for day in section.extra.weekly_menu %}
-    <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.day }}">
+    {% for day in days %}
+    <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}">
         <div class="panel-heading">
-            <h3>{{ day.theme }}</h3>
-            <p>{{ day.highlight }} · {{ day.mood }}</p>
+            <h3>{{ day.extra.theme }}</h3>
+            <p>{{ day.extra.highlight }} · {{ day.extra.mood }}</p>
         </div>
         <ul class="item-list">
-            {% for dish in day.details %}
+            {% for dish in day.extra.dishes %}
             <li class="item-card">
                 <div class="item-heading">
                     <span class="item-name">{{ dish.name }}</span>
