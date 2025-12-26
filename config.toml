@@ -1,0 +1,16 @@
+base_url = "https://koivunoksa.fi/"
+title = "Koivunoksa"
+description = "Seasonal forest dining inspired by Finnish birch groves"
+compile_sass = false
+minify_html = true
+default_language = "en"
+generate_feeds = false
+
+[markdown]
+highlight_code = false
+
+[extra]
+city = "Helsinki"
+contact_email = "table@koivunoksa.fi"
+phone = "+358 40 555 1234"
+address = "Runeberginkatu 12, Helsinki"
