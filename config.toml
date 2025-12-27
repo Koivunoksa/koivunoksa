@@ -37,6 +37,11 @@ profile_url = "https://www.instagram.com/ravintolakoivunoksa/"
 heading = { en = "Birch glimpses on Instagram", fi = "Koivunoksan Instagram" }
 intro = { en = "Swipe through the prep table and plating straight from @ravintolakoivunoksa.", fi = "Kurki @ravintolakoivunoksa-tilin kulisseihin ja annoskuviin." }
 button = { en = "Open Instagram", fi = "Avaa Instagram" }
+
+[extra.facebook_embed]
+page_url = "https://www.facebook.com/RavintolaKoivunoksa/"
+heading = { en = "Koivunoksa on Facebook", fi = "Koivunoksa Facebookissa" }
+intro = { en = "Latest notices, lunch changes, and behind-the-scenes stories land here first.", fi = "Viimeisimmät tiedotteet, lounasmuutokset ja kulissitarinat päivittyvät tänne." }
 [extra.nav_labels.story]
 en = "Story"
 fi = "Tarina"

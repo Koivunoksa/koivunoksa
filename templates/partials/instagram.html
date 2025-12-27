@@ -1,5 +1,8 @@
 {% if config.extra.instagram_embed %}
 {% set embed_posts = config.extra.instagram_embed.posts | default(value=[]) %}
+{% set facebook_embed = config.extra.facebook_embed %}
+{% set has_instagram = embed_posts | length > 0 or (config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0) %}
+{% set has_facebook = facebook_embed and facebook_embed.page_url and facebook_embed.page_url | length > 0 %}
 <section class="instagram-section" id="instagram">
     <div class="instagram-card">
         <div class="instagram-copy">
@@ -17,19 +20,49 @@
                 <span data-lang-text="fi">{{ config.extra.instagram_embed.button.fi }}</span>
             </a>
         </div>
-        {% if embed_posts | length > 0 %}
-        <div class="instagram-embed-grid">
-            {% for permalink in embed_posts %}
-            <div class="instagram-embed">
-                <blockquote class="instagram-media" data-instgrm-permalink="{{ permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+        {% if has_instagram or has_facebook %}
+        <div class="social-embed-stack">
+            {% if has_instagram %}
+                {% if embed_posts | length > 0 %}
+                <div class="instagram-embed-grid" aria-label="Instagram feed">
+                    {% for permalink in embed_posts %}
+                    <div class="instagram-embed">
+                        <blockquote class="instagram-media" data-instgrm-permalink="{{ permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="instagram-embed-grid" aria-label="Instagram feed">
+                    <div class="instagram-embed">
+                        <blockquote class="instagram-media" data-instgrm-permalink="{{ config.extra.instagram_embed.permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+                    </div>
+                </div>
+                {% endif %}
+            {% endif %}
+            {% if has_facebook %}
+            {% set fb_url = facebook_embed.page_url | urlencode %}
+            <div class="facebook-embed">
+                <div class="facebook-copy">
+                    <h3>
+                        <span data-lang-text="en">{{ facebook_embed.heading.en }}</span>
+                        <span data-lang-text="fi">{{ facebook_embed.heading.fi }}</span>
+                    </h3>
+                    <p>
+                        <span data-lang-text="en">{{ facebook_embed.intro.en }}</span>
+                        <span data-lang-text="fi">{{ facebook_embed.intro.fi }}</span>
+                    </p>
+                </div>
+                <div class="facebook-frame">
+                    <iframe
+                        src="https://www.facebook.com/plugins/page.php?href={{ fb_url }}&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        title="Koivunoksa Facebook feed"></iframe>
+                </div>
             </div>
-            {% endfor %}
-        </div>
-        {% elif config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
-        <div class="instagram-embed-grid">
-            <div class="instagram-embed">
-                <blockquote class="instagram-media" data-instgrm-permalink="{{ config.extra.instagram_embed.permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
-            </div>
+            {% endif %}
         </div>
         {% endif %}
     </div>
