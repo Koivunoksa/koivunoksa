@@ -3,26 +3,27 @@
 {% set facebook_embed = config.extra.facebook_embed %}
 {% set has_instagram = embed_posts | length > 0 or (config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0) %}
 {% set has_facebook = facebook_embed and facebook_embed.page_url and facebook_embed.page_url | length > 0 %}
+{% if has_instagram or has_facebook %}
 <section class="instagram-section" id="instagram">
     <div class="instagram-card">
-        <div class="instagram-copy">
-            <p class="instagram-handle">@ravintolakoivunoksa</p>
-            <h2>
-                <span data-lang-text="en">{{ config.extra.instagram_embed.heading.en }}</span>
-                <span data-lang-text="fi">{{ config.extra.instagram_embed.heading.fi }}</span>
-            </h2>
-            <p>
-                <span data-lang-text="en">{{ config.extra.instagram_embed.intro.en }}</span>
-                <span data-lang-text="fi">{{ config.extra.instagram_embed.intro.fi }}</span>
-            </p>
-            <a class="instagram-btn" href="{{ config.extra.instagram_embed.profile_url }}" target="_blank" rel="noreferrer noopener">
-                <span data-lang-text="en">{{ config.extra.instagram_embed.button.en }}</span>
-                <span data-lang-text="fi">{{ config.extra.instagram_embed.button.fi }}</span>
-            </a>
-        </div>
-        {% if has_instagram or has_facebook %}
-        <div class="social-embed-stack">
+        <div class="social-grid">
             {% if has_instagram %}
+            <div class="instagram-panel">
+                <div class="instagram-copy">
+                    <p class="instagram-handle">@ravintolakoivunoksa</p>
+                    <h2>
+                        <span data-lang-text="en">{{ config.extra.instagram_embed.heading.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.instagram_embed.heading.fi }}</span>
+                    </h2>
+                    <p>
+                        <span data-lang-text="en">{{ config.extra.instagram_embed.intro.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.instagram_embed.intro.fi }}</span>
+                    </p>
+                    <a class="instagram-btn" href="{{ config.extra.instagram_embed.profile_url }}" target="_blank" rel="noreferrer noopener">
+                        <span data-lang-text="en">{{ config.extra.instagram_embed.button.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.instagram_embed.button.fi }}</span>
+                    </a>
+                </div>
                 {% if embed_posts | length > 0 %}
                 <div class="instagram-embed-grid" aria-label="Instagram feed">
                     {% for permalink in embed_posts %}
@@ -38,10 +39,11 @@
                     </div>
                 </div>
                 {% endif %}
+            </div>
             {% endif %}
             {% if has_facebook %}
             {% set fb_url = facebook_embed.page_url | urlencode %}
-            <div class="facebook-embed">
+            <div class="facebook-panel">
                 <div class="facebook-copy">
                     <h3>
                         <span data-lang-text="en">{{ facebook_embed.heading.en }}</span>
@@ -64,7 +66,7 @@
             </div>
             {% endif %}
         </div>
-        {% endif %}
     </div>
 </section>
+{% endif %}
 {% endif %}
