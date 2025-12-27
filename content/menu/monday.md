@@ -1,5 +1,6 @@
 +++
 title = "Maanantai"
+date = 2025-12-29
 weight = 1
 [extra]
 day = { fi = "Maanantai", en = "Monday" }

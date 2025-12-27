@@ -62,6 +62,9 @@
             <div class="day-label">
                 <span data-lang-text="fi">{{ day_label_fi }}</span>
                 <span data-lang-text="en">{{ day_label_en }}</span>
+                {% if day.date %}
+                <span class="day-date">{{ day.date | date(format="%d.%m.%Y") }}</span>
+                {% endif %}
             </div>
             <p class="day-highlight">
                 <span data-lang-text="fi">{{ spotlight_fi }}</span>

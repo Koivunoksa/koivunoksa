@@ -1,5 +1,6 @@
 +++
 title = "Perjantai"
+date = 2026-01-02
 weight = 5
 [extra]
 day = { fi = "Perjantai", en = "Friday" }

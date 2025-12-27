@@ -69,4 +69,4 @@ social = { en = "Follow", fi = "Seuraa" }
 map = { en = "Map", fi = "Kartta" }
 
 [extra.hours_text]
-lunch = { en = "Lunch 10:30-13:00", fi = "Lounas 10.30 - 13.00" }
+lunch = { en = "Lunch Mon - Fri 10:30-13:00", fi = "Lounas ma - pe klo 10.30 - 13.00" }

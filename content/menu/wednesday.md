@@ -1,5 +1,6 @@
 +++
 title = "Keskiviikko"
+date = 2025-12-31
 weight = 3
 [extra]
 day = { fi = "Keskiviikko", en = "Wednesday" }

@@ -34,6 +34,9 @@
     {% set summary_en = day.extra.summary_en | default(value=summary_fi) %}
     <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}" id="daily-{{ day.slug }}">
         <div class="panel-heading">
+            {% if day.date %}
+            <div class="panel-date">{{ day.date | date(format="%d.%m.%Y") }}</div>
+            {% endif %}
             <h3>
                 <span data-lang-text="fi">{{ day_label_fi }}</span>
                 <span data-lang-text="en">{{ day_label_en }}</span>

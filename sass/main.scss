@@ -423,6 +423,15 @@ section {
     letter-spacing: 0.15rem;
     text-transform: uppercase;
     color: var(--forest-mid);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.day-date {
+    font-size: 0.75rem;
+    color: rgba(0,0,0,0.45);
+    letter-spacing: 0.05rem;
 }
 
 .day-theme {
@@ -525,6 +534,15 @@ section {
 .detail-panel.is-active {
     display: grid;
     gap: 1.75rem;
+}
+
+.panel-date {
+    font-size: 0.85rem;
+    color: var(--forest-mid);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
 }
 
 .panel-heading h3 {
