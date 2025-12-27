@@ -8,190 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
     {% block head %}{% endblock head %}
-    <style>
-        :root {
-            --birch-white: #f7f4ef;
-            --birch-shadow: #dcd4c5;
-            --forest-dark: #0f241c;
-            --forest-mid: #436a4c;
-            --leaf-bright: #7fb167;
-            --accent-amber: #d49b3c;
-            --text-body: #1f1d1a;
-            --grid-max: 1100px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
-            color: var(--text-body);
-            background: var(--birch-white);
-            min-height: 100vh;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(202, 225, 210, 0.3));
-            pointer-events: none;
-            z-index: -3;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image: repeating-linear-gradient(90deg, rgba(70, 54, 33, 0.08) 0, rgba(70,54,33,0.08) 2px, transparent 2px, transparent 28px);
-            opacity: 0.4;
-            mix-blend-mode: multiply;
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        .bark-veil {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(127, 177, 103, 0.25), transparent 45%),
-                        radial-gradient(circle at 80% 10%, rgba(212, 155, 60, 0.2), transparent 40%),
-                        radial-gradient(circle at 60% 70%, rgba(67, 106, 76, 0.2), transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        main {
-            max-width: var(--grid-max);
-            margin: 0 auto;
-            padding: 3.5rem clamp(1.25rem, 4vw, 3rem) 4rem;
-        }
-
-        header.site-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-mark {
-            font-family: 'Fraunces', serif;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            color: var(--forest-dark);
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--forest-dark);
-            font-size: 0.95rem;
-            margin-left: 1.5rem;
-            position: relative;
-            display: inline-flex;
-            gap: 0.35rem;
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -0.2rem;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-amber);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.25s ease;
-        }
-
-        nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        footer {
-            margin-top: 4rem;
-            padding: 2rem 0 3rem;
-            border-top: 1px solid rgba(15,36,28,0.1);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        footer strong {
-            font-family: 'Fraunces', serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.08rem;
-        }
-
-        .language-switch {
-            display: inline-flex;
-            border: 1px solid rgba(15,36,28,0.2);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .lang-btn {
-            border: none;
-            background: transparent;
-            padding: 0.35rem 0.9rem;
-            font-size: 0.8rem;
-            letter-spacing: 0.15rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            color: var(--forest-dark);
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .lang-btn.is-active {
-            background: var(--forest-dark);
-            color: #fff;
-        }
-
-        [data-lang-text] {
-            display: none !important;
-        }
-
-        body[data-lang="en"] [data-lang-text="en"],
-        body[data-lang="fi"] [data-lang-text="fi"] {
-            display: revert !important;
-        }
-
-        @media (max-width: 720px) {
-            header.site-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .header-actions {
-                width: 100%;
-                justify-content: space-between;
-                flex-wrap: wrap;
-            }
-
-            nav {
-                order: 2;
-                width: 100%;
-            }
-
-            nav a {
-                margin-left: 0;
-                margin-right: 1rem;
-            }
-        }
-    </style>
 </head>
 <body data-lang="en">
     <div class="bark-veil" aria-hidden="true"></div>
@@ -201,20 +19,20 @@
             <div class="header-actions">
                 <nav>
                     <a href="#story">
-                        <span data-lang-text="en">Story</span>
-                        <span data-lang-text="fi">Tarina</span>
+                        <span data-lang-text="en">{{ config.extra.nav_labels.story.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.nav_labels.story.fi }}</span>
                     </a>
                     <a href="#menu">
-                        <span data-lang-text="en">Weekly Menu</span>
-                        <span data-lang-text="fi">Viikkolista</span>
+                        <span data-lang-text="en">{{ config.extra.nav_labels.menu.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.nav_labels.menu.fi }}</span>
                     </a>
                     <a href="#daily">
-                        <span data-lang-text="en">Daily Plates</span>
-                        <span data-lang-text="fi">Päivän annokset</span>
+                        <span data-lang-text="en">{{ config.extra.nav_labels.daily.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.nav_labels.daily.fi }}</span>
                     </a>
                     <a href="#contact">
-                        <span data-lang-text="en">Visit</span>
-                        <span data-lang-text="fi">Vierailu</span>
+                        <span data-lang-text="en">{{ config.extra.nav_labels.contact.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.nav_labels.contact.fi }}</span>
                     </a>
                 </nav>
                 <div class="language-switch" role="group" aria-label="Language switch">
@@ -226,19 +44,34 @@
         {% block content %}{% endblock content %}
         <footer id="contact">
             <div>
-                <strong>Find us</strong>
+                <strong>
+                    <span data-lang-text="en">{{ config.extra.footer_labels.find.en }}</span>
+                    <span data-lang-text="fi">{{ config.extra.footer_labels.find.fi }}</span>
+                </strong>
                 <div>{{ config.extra.address }}</div>
                 <div>{{ config.extra.city }}</div>
             </div>
             <div>
-                <strong>Reserve</strong>
+                <strong>
+                    <span data-lang-text="en">{{ config.extra.footer_labels.reserve.en }}</span>
+                    <span data-lang-text="fi">{{ config.extra.footer_labels.reserve.fi }}</span>
+                </strong>
                 <div>{{ config.extra.phone }}</div>
                 <div>{{ config.extra.contact_email }}</div>
             </div>
             <div>
-                <strong>Hours</strong>
-                <div>Lunch Tue-Fri 11:30-14:00</div>
-                <div>Dinner Mon-Sat 17:30-23:00</div>
+                <strong>
+                    <span data-lang-text="en">{{ config.extra.footer_labels.hours.en }}</span>
+                    <span data-lang-text="fi">{{ config.extra.footer_labels.hours.fi }}</span>
+                </strong>
+                <div>
+                    <span data-lang-text="en">{{ config.extra.hours_text.lunch.en }}</span>
+                    <span data-lang-text="fi">{{ config.extra.hours_text.lunch.fi }}</span>
+                </div>
+                <div>
+                    <span data-lang-text="en">{{ config.extra.hours_text.dinner.en }}</span>
+                    <span data-lang-text="fi">{{ config.extra.hours_text.dinner.fi }}</span>
+                </div>
             </div>
         </footer>
     </main>

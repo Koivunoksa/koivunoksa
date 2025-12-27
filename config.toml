@@ -1,7 +1,7 @@
 base_url = "https://koivunoksa.fi/"
 title = "Koivunoksa"
 description = "Seasonal forest dining inspired by Finnish birch groves"
-compile_sass = false
+compile_sass = true
 minify_html = true
 default_language = "en"
 generate_feeds = false
@@ -10,7 +10,31 @@ generate_feeds = false
 highlight_code = false
 
 [extra]
-city = "Helsinki"
+city = "Espoo"
 contact_email = "table@koivunoksa.fi"
-phone = "+358 40 555 1234"
-address = "Runeberginkatu 12, Helsinki"
+phone = "050 3730084"
+address = "Mänkimiehentie 14 G, 02780 Espoo"
+[extra.nav_labels.story]
+en = "Story"
+fi = "Tarina"
+
+[extra.nav_labels.menu]
+en = "Weekly Menu"
+fi = "Viikkolista"
+
+[extra.nav_labels.daily]
+en = "Daily Plates"
+fi = "Päivän annokset"
+
+[extra.nav_labels.contact]
+en = "Visit"
+fi = "Vierailu"
+
+[extra.footer_labels]
+find = { en = "Find us", fi = "Löydä meidät" }
+reserve = { en = "Reserve", fi = "Varaa" }
+hours = { en = "Hours", fi = "Aukioloajat" }
+
+[extra.hours_text]
+lunch = { en = "Lunch Tue-Fri 11:30-14:00", fi = "Lounas ti-pe 11:30-14:00" }
+dinner = { en = "Dinner Mon-Sat 17:30-23:00", fi = "Illallinen ma-la 17:30-23:00" }

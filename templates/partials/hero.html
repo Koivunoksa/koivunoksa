@@ -1,0 +1,20 @@
+<section class="hero" id="story">
+    <div class="hero-content">
+        <h1>
+            <span data-lang-text="en">{{ section.extra.hero_heading.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.hero_heading.fi }}</span>
+        </h1>
+        <p>
+            <span data-lang-text="en">{{ section.extra.hero_intro.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.hero_intro.fi }}</span>
+        </p>
+        <div class="hero-meta">
+            {% for meta in section.extra.hero_meta.en %}
+            <span data-lang-text="en">{{ meta }}</span>
+            {% endfor %}
+            {% for meta in section.extra.hero_meta.fi %}
+            <span data-lang-text="fi">{{ meta }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,87 @@
+<section class="daily-section" id="daily">
+    <div class="daily-header">
+        <h2>
+            <span data-lang-text="en">Daily plates</span>
+            <span data-lang-text="fi">Päivän annokset</span>
+        </h2>
+        <p>
+            <span data-lang-text="en">{{ section.extra.daily_intro.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.daily_intro.fi }}</span>
+        </p>
+    </div>
+    <div class="daily-tabs">
+        {% for day in days %}
+        {% set day_name = day.extra.day %}
+        {% set day_label_fi = day_name.fi | default(value=day.title) %}
+        {% set day_label_en = day_name.en | default(value=day_label_fi) %}
+        <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.slug }}">
+            <span class="tab-day" data-lang-text="fi">{{ day_label_fi }}</span>
+            <span class="tab-day-en" data-lang-text="en">{{ day_label_en }}</span>
+        </button>
+        {% endfor %}
+    </div>
+    {% for day in days %}
+    {% set day_name = day.extra.day %}
+    {% set first_dish = day.extra.dishes | first %}
+    {% set day_label_fi = day_name.fi | default(value=day.title) %}
+    {% set day_label_en = day_name.en | default(value=day_label_fi) %}
+    {% set fallback_spotlight = day.extra.spotlight | default(value=first_dish.name_fi) %}
+    {% set spotlight_fi = fallback_spotlight %}
+    {% set spotlight_en = day.extra.spotlight_en | default(value=fallback_spotlight) %}
+    {% set summary_fi = day.extra.summary | default(value="") %}
+    {% set summary_en = day.extra.summary_en | default(value=summary_fi) %}
+    <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}">
+        <div class="panel-heading">
+            <h3>
+                <span data-lang-text="fi">{{ day_label_fi }}</span>
+                <span data-lang-text="en">{{ day_label_en }}</span>
+            </h3>
+            <p>
+                <span data-lang-text="fi">{{ spotlight_fi }} — {{ summary_fi }}</span>
+                <span data-lang-text="en">{{ spotlight_en }} — {{ summary_en }}</span>
+            </p>
+        </div>
+        <ul class="item-list">
+            {% for dish in day.extra.dishes %}
+            <li class="item-card">
+                <div class="item-heading">
+                    <div class="item-name-block">
+                        <span class="item-name" data-lang-text="fi">{{ dish.name_fi }}</span>
+                        <span class="item-name" data-lang-text="en">{{ dish.name_en | default(value=dish.name_fi) }}</span>
+                    </div>
+                    {% if dish.diets %}<span class="item-diets">{{ dish.diets }}</span>{% endif %}
+                </div>
+                {% if dish.note or dish.note_en %}
+                    <p class="item-note" data-lang-text="fi">{{ dish.note }}</p>
+                    <p class="item-note" data-lang-text="en">{{ dish.note_en | default(value=dish.note) }}</p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <div class="menu-footnotes">
+        <span>
+            <span data-lang-text="en">{{ menu_meta.diet_key.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.diet_key.fi }}</span>
+        </span>
+        <span>
+            <span data-lang-text="en">{{ menu_meta.treat.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.treat.fi }}</span>
+        </span>
+        <span>
+            <span data-lang-text="en">{{ menu_meta.welcome.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.welcome.fi }}</span>
+        </span>
+    </div>
+    <div class="cta-ribbon">
+        <div>
+            <span data-lang-text="en">{{ section.extra.cta_text.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.cta_text.fi }}</span>
+        </div>
+        <a href="mailto:{{ config.extra.contact_email }}?subject=Reservation">
+            <span data-lang-text="en">{{ section.extra.cta_button.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.cta_button.fi }}</span>
+        </a>
+    </div>
+</section>
