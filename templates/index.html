@@ -19,8 +19,9 @@
 {% block scripts %}
 <script>
     (function() {
+        const dayTabs = Array.from(document.querySelectorAll('[data-day-tab]'));
         const activatePanel = (day) => {
-            document.querySelectorAll('[data-day-tab]').forEach(btn => {
+            dayTabs.forEach(btn => {
                 btn.classList.toggle('is-active', btn.dataset.dayTab === day);
             });
             document.querySelectorAll('[data-day-panel]').forEach(panel => {
@@ -28,7 +29,7 @@
             });
         };
 
-        document.querySelectorAll('[data-day-tab]').forEach(btn => {
+        dayTabs.forEach(btn => {
             btn.addEventListener('click', () => activatePanel(btn.dataset.dayTab));
         });
 
@@ -39,6 +40,24 @@
                 dailySection.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        const pickDefaultDay = () => {
+            const slugByDay = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+            const todaySlug = slugByDay[new Date().getDay()];
+            const available = dayTabs.map(btn => btn.dataset.dayTab);
+            if (available.includes(todaySlug)) {
+                return todaySlug;
+            }
+            if (available.includes('monday')) {
+                return 'monday';
+            }
+            return available[0];
+        };
+
+        const defaultDay = pickDefaultDay();
+        if (defaultDay) {
+            activatePanel(defaultDay);
+        }
     })();
 </script>
 {% set embed_posts = config.extra.instagram_embed.posts | default(value=[]) %}

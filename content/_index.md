@@ -35,6 +35,7 @@ Koivunoksa rakentaa viikon ruokalistan tarkasti, jotta jokainen raaka-aine voida
 """
 
 [extra.menu_intro]
+show = false
 en = "Five mini-menus riff on textures from the birch forest: bark-smoked roots, sap-sweet glazes, and crisp leaves. Each day is limited to a handful of services so the kitchen can focus on detail."
 fi = "Viisi mini-menua kuvaa koivumetsän tekstuureja: kuorilla savustetut juurekset, mahlalla makeutetut lasuurit ja rapsakat lehdet. Päivittäin on vain muutama kattaus, jotta keittiö voi keskittyä viimeiseenkin yksityiskohtaan."
 
