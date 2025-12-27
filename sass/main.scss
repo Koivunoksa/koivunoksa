@@ -579,6 +579,80 @@ section {
     color: rgba(0,0,0,0.65);
 }
 
+.instagram-section {
+    margin-bottom: 4rem;
+}
+
+.instagram-card {
+    border-radius: 28px;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(233,244,236,0.95));
+    border: 1px solid rgba(15,36,28,0.08);
+    box-shadow: 0 25px 45px rgba(15, 36, 28, 0.14);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.instagram-copy {
+    max-width: 420px;
+}
+
+.instagram-handle {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 0.78rem;
+    color: rgba(15,36,28,0.65);
+    margin: 0 0 0.6rem;
+}
+
+.instagram-copy h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin: 0 0 0.75rem;
+    color: var(--forest-dark);
+}
+
+.instagram-copy p {
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--forest-dark);
+    color: #fff;
+    padding: 0.65rem 1.4rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+.instagram-btn::after {
+    content: "→";
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.instagram-btn:hover::after {
+    transform: translateX(4px);
+}
+
+.instagram-embed {
+    width: 100%;
+    min-height: 380px;
+}
+
+.instagram-embed blockquote {
+    margin: 0 auto !important;
+}
+
 @media (max-width: 720px) {
     header.site-header {
         flex-direction: column;

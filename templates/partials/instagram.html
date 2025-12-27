@@ -1,0 +1,26 @@
+{% if config.extra.instagram_embed %}
+<section class="instagram-section" id="instagram">
+    <div class="instagram-card">
+        <div class="instagram-copy">
+            <p class="instagram-handle">@ravintolakoivunoksa</p>
+            <h2>
+                <span data-lang-text="en">{{ config.extra.instagram_embed.heading.en }}</span>
+                <span data-lang-text="fi">{{ config.extra.instagram_embed.heading.fi }}</span>
+            </h2>
+            <p>
+                <span data-lang-text="en">{{ config.extra.instagram_embed.intro.en }}</span>
+                <span data-lang-text="fi">{{ config.extra.instagram_embed.intro.fi }}</span>
+            </p>
+            <a class="instagram-btn" href="{{ config.extra.instagram_embed.profile_url }}" target="_blank" rel="noreferrer noopener">
+                <span data-lang-text="en">{{ config.extra.instagram_embed.button.en }}</span>
+                <span data-lang-text="fi">{{ config.extra.instagram_embed.button.fi }}</span>
+            </a>
+        </div>
+        {% if config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
+        <div class="instagram-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="{{ config.extra.instagram_embed.permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

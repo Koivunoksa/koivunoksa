@@ -13,6 +13,7 @@
 {% include "partials/story.html" %}
 {% include "partials/menu-overview.html" %}
 {% include "partials/daily.html" %}
+{% include "partials/instagram.html" %}
 {% endblock content %}
 
 {% block scripts %}
@@ -40,4 +41,7 @@
         });
     })();
 </script>
+{% if config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
+<script async src="https://www.instagram.com/embed.js"></script>
+{% endif %}
 {% endblock scripts %}
