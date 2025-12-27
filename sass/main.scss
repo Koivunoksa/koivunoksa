@@ -354,8 +354,11 @@ section {
 .week-grid {
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.6rem;
+    max-width: calc(320px * 3 + 1.6rem * 2);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .day-card {
