@@ -1,24 +1,38 @@
 +++
-title = "Wednesday"
+title = "Keskiviikko"
 weight = 3
 [extra]
-day = "Wednesday"
-theme = "Midsummer Ember"
-highlight = "Juniper lamb shoulder, black garlic glaze"
-mood = "Deep & smoky"
+day = { fi = "Keskiviikko", en = "Wednesday" }
+spotlight = "Linssikeitto ja pyttipannu"
+summary = "Keskiviikko koostaa kasvispainotteisen keiton, klassisen pyttipannun ja runsaan tofu-curryn."
 
 [[extra.dishes]]
-name = "Grilled asparagus"
-description = "Smoked cultured cream, sea buckthorn dust"
-price = "€16"
+name_fi = "Linssikeitto"
+name_en = "Lentil soup"
+diets = "L, G, M, V"
+kind = "soup"
 
 [[extra.dishes]]
-name = "Juniper lamb"
-description = "Coal-baked beets, roasted garlic, spruce salt"
-price = "€28"
+name_fi = "Pyttipannu & paistettu kananmuna"
+name_en = "Hash with fried egg"
+diets = "L, G, M"
+kind = "main"
 
 [[extra.dishes]]
-name = "Roasted oat custard"
-description = "Caramel birch sap, toasted barley"
-price = "€11"
+name_fi = "Härkäcrepet"
+name_en = "Beef crêpes"
+diets = "L"
+kind = "main"
+
+[[extra.dishes]]
+name_fi = "Tofu-tomaatticurry"
+name_en = "Tofu tomato curry"
+diets = "L, G, M, V"
+kind = "vegetarian"
+
+[[extra.dishes]]
+name_fi = "Kääretorttu"
+name_en = "Swiss roll"
+diets = "L, G"
+kind = "dessert"
 +++

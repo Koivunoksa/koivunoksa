@@ -88,6 +88,43 @@
         gap: 1rem;
     }
 
+    .menu-banner {
+        margin-top: 1.5rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.92);
+        border: 1px solid rgba(15,36,28,0.08);
+        box-shadow: 0 12px 25px rgba(15,36,28,0.08);
+        display: grid;
+        gap: 0.6rem;
+    }
+
+    .banner-label {
+        font-weight: 600;
+        letter-spacing: 0.08rem;
+        text-transform: uppercase;
+        color: var(--forest-mid);
+    }
+
+    .banner-hours {
+        font-family: 'Fraunces', serif;
+        font-size: 1.2rem;
+    }
+
+    .banner-pricing {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        font-weight: 600;
+        color: var(--forest-dark);
+    }
+
+    .banner-includes,
+    .banner-note {
+        font-size: 0.95rem;
+        color: rgba(0,0,0,0.75);
+    }
+
     .menu-header p,
     .daily-header p {
         max-width: 420px;
@@ -127,6 +164,30 @@
 
     .day-card:hover::before {
         opacity: 1;
+    }
+
+    .card-dishes {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.9rem;
+        color: rgba(0,0,0,0.72);
+    }
+
+    .card-dishes li {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        border-top: 1px solid rgba(15,36,28,0.08);
+        padding-top: 0.4rem;
+        margin-top: 0.4rem;
+    }
+
+    .card-dishes span {
+        font-size: 0.78rem;
+        letter-spacing: 0.08rem;
+        color: rgba(0,0,0,0.5);
+        text-transform: uppercase;
     }
 
     .day-label {
@@ -203,6 +264,25 @@
         color: #fff;
     }
 
+    .tab-btn span {
+        display: block;
+        letter-spacing: 0.12rem;
+        text-transform: uppercase;
+    }
+
+    .tab-day {
+        font-size: 0.9rem;
+    }
+
+    .tab-day-en {
+        font-size: 0.68rem;
+        color: rgba(0,0,0,0.55);
+    }
+
+    .tab-btn.is-active .tab-day-en {
+        color: rgba(255,255,255,0.8);
+    }
+
     .detail-panel {
         display: none;
     }
@@ -246,9 +326,29 @@
         font-weight: 600;
     }
 
-    .item-price {
-        font-family: 'Fraunces', serif;
-        color: var(--accent-amber);
+    .item-name-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .item-translation {
+        font-size: 0.85rem;
+        color: rgba(0,0,0,0.6);
+        letter-spacing: 0.02rem;
+    }
+
+    .item-diets {
+        font-size: 0.8rem;
+        letter-spacing: 0.08rem;
+        color: var(--forest-mid);
+        text-transform: uppercase;
+    }
+
+    .item-note {
+        margin: 0.35rem 0 0;
+        font-size: 0.9rem;
+        color: rgba(0,0,0,0.68);
     }
 
     .cta-ribbon {
@@ -270,6 +370,15 @@
         padding: 0.7rem 1.6rem;
         text-decoration: none;
         letter-spacing: 0.05rem;
+    }
+
+    .menu-footnotes {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        color: rgba(0,0,0,0.65);
     }
 
     @media (max-width: 640px) {
@@ -297,6 +406,7 @@
 {% block content %}
 {% set menu_section = get_section(path="menu/_index.md") %}
 {% set days = menu_section.pages %}
+{% set menu_meta = menu_section.extra %}
 <section class="hero" id="story">
     <div class="hero-content">
         <h1>Birch-lined dining, rooted in Finland</h1>
@@ -323,13 +433,36 @@
         </div>
         <p>Tap any day to reveal the full plates below, or scroll to the daily section for a richer dive.</p>
     </div>
+    <div class="menu-banner">
+        <div>
+            <div class="banner-label">{{ menu_meta.week_label }}</div>
+            <div class="banner-hours">{{ menu_meta.headline }}</div>
+        </div>
+        <div class="banner-pricing">
+            {% for price in menu_meta.pricing %}
+            <span>{{ price }}</span>
+            {% endfor %}
+        </div>
+        <div class="banner-includes">{{ menu_meta.includes }}</div>
+        <div class="banner-note">{{ menu_meta.allergen_note }}</div>
+    </div>
     <div class="week-grid">
         {% for day in days %}
+        {% set day_name = day.extra.day %}
+        {% set first_dish = day.extra.dishes | first %}
+        {% set feature = day.extra.spotlight | default(value=first_dish.name_fi) %}
         <article class="day-card">
-            <div class="day-label">{{ day.extra.day | default(value=day.title) }}</div>
-            <p class="day-theme">{{ day.extra.theme }}</p>
-            <p class="day-highlight">{{ day.extra.highlight }}</p>
-            <div class="day-mood">{{ day.extra.mood }}</div>
+            <div class="day-label">{{ day_name.fi | default(value=day.title) }}</div>
+            {% if day_name.en %}<p class="day-theme">{{ day_name.en }}</p>{% endif %}
+            <p class="day-highlight">{{ feature }}</p>
+            <div class="day-mood">{{ day.extra.summary }}</div>
+            <ul class="card-dishes">
+                {% for dish in day.extra.dishes %}
+                    {% if loop.index <= 2 %}
+                    <li>{{ dish.name_fi }} <span>{{ dish.diets }}</span></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
             <button class="view-detail" data-day-link="{{ day.slug }}">See plates</button>
         </article>
         {% endfor %}
@@ -343,28 +476,44 @@
     </div>
     <div class="daily-tabs">
         {% for day in days %}
-        <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.slug }}">{{ day.extra.day | default(value=day.title) }}</button>
+        {% set day_name = day.extra.day %}
+        <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.slug }}">
+            <span class="tab-day">{{ day_name.fi | default(value=day.title) }}</span>
+            {% if day_name.en %}<span class="tab-day-en">{{ day_name.en }}</span>{% endif %}
+        </button>
         {% endfor %}
     </div>
     {% for day in days %}
+    {% set day_name = day.extra.day %}
     <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}">
         <div class="panel-heading">
-            <h3>{{ day.extra.theme }}</h3>
-            <p>{{ day.extra.highlight }} · {{ day.extra.mood }}</p>
+            <h3>
+                {{ day_name.fi | default(value=day.title) }}
+                {% if day_name.en %} · {{ day_name.en }}{% endif %}
+            </h3>
+            <p>{{ day.extra.spotlight }} — {{ day.extra.summary }}</p>
         </div>
         <ul class="item-list">
             {% for dish in day.extra.dishes %}
             <li class="item-card">
                 <div class="item-heading">
-                    <span class="item-name">{{ dish.name }}</span>
-                    <span class="item-price">{{ dish.price }}</span>
+                    <div class="item-name-block">
+                        <span class="item-name">{{ dish.name_fi }}</span>
+                        {% if dish.name_en %}<span class="item-translation">{{ dish.name_en }}</span>{% endif %}
+                    </div>
+                    {% if dish.diets %}<span class="item-diets">{{ dish.diets }}</span>{% endif %}
                 </div>
-                <p>{{ dish.description }}</p>
+                {% if dish.note %}<p class="item-note">{{ dish.note }}</p>{% endif %}
             </li>
             {% endfor %}
         </ul>
     </div>
     {% endfor %}
+    <div class="menu-footnotes">
+        <span>{{ menu_meta.diet_key }}</span>
+        <span>{{ menu_meta.treat }}</span>
+        <span>{{ menu_meta.welcome }}</span>
+    </div>
     <div class="cta-ribbon">
         <div>
             Booking lines open noon each Monday. Chef's counter available for 8 guests each night with a five-course progression.

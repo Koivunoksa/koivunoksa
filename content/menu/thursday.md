@@ -1,24 +1,39 @@
 +++
-title = "Thursday"
+title = "Torstai"
 weight = 4
 [extra]
-day = "Thursday"
-theme = "Lake Reflection"
-highlight = "Brown-butter trout with cloudberry glaze"
-mood = "Fluid & bright"
+day = { fi = "Torstai", en = "Thursday" }
+spotlight = "Hernekeitto ja rapeat kalapihvit"
+summary = "Torstain menu seuraa perinnettä: hernekeitto, piparjuurella maustettua kanaa ja pannukakku jälkiruoaksi."
 
 [[extra.dishes]]
-name = "Crisp potato nest"
-description = "Charred leek, lake herbs, whitefish roe"
-price = "€17"
+name_fi = "Hernekeitto"
+name_en = "Pea soup"
+diets = "L, G, M"
+kind = "soup"
 
 [[extra.dishes]]
-name = "Butter-poached trout"
-description = "Cloudberry lacquer, pine shoots, pearl onion"
-price = "€25"
+name_fi = "Kanaa piparjuurikastikkeessa"
+name_en = "Chicken in horseradish sauce"
+diets = "L, G"
+kind = "main"
 
 [[extra.dishes]]
-name = "Caraway seed cake"
-description = "Whipped quark, honeyed blueberries"
-price = "€11"
+name_fi = "Rapeat kalapihvit & kermaviilikastike"
+name_en = "Crispy fish patties & sour cream sauce"
+diets = "L, M"
+note = "Kalapihvit L, M · Kastike L, G"
+kind = "main"
+
+[[extra.dishes]]
+name_fi = "Paprikakastiketta & paistettua ohraa"
+name_en = "Sweet pepper sauce & fried barley"
+diets = "L, G, M, V"
+kind = "vegetarian"
+
+[[extra.dishes]]
+name_fi = "Pannukakku"
+name_en = "Pancake"
+diets = "L"
+kind = "dessert"
 +++
