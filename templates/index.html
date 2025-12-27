@@ -35,12 +35,19 @@
 
         const dailySection = document.getElementById('daily');
         const scrollToPanel = (slug) => {
-            const target = document.querySelector(`[data-day-panel="${slug}"]`);
-            (target || dailySection).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const target = document.getElementById(`daily-${slug}`) || document.querySelector(`[data-day-panel="${slug}"]`);
+            const destination = target || dailySection;
+            window.requestAnimationFrame(() => {
+                destination.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (destination.id) {
+                    window.history.replaceState(null, '', `#${destination.id}`);
+                }
+            });
         };
 
         document.querySelectorAll('[data-day-link]').forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
                 const slug = btn.dataset.dayLink;
                 activatePanel(slug);
                 scrollToPanel(slug);
