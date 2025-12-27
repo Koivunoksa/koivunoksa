@@ -43,6 +43,7 @@ en = "Tap any day to reveal the full plates below, or scroll to the daily sectio
 fi = "Valitse viikonpäivä nähdäksesi annokset tarkemmin tai jatka päivänäkymään alapuolella."
 
 [extra.daily_intro]
+show = false
 en = "Hovering over birch bark textures, these plates change weekly yet stay anchored to produce gathered within 150 kilometers."
 fi = "Koivunkuorta mukailevat annokset vaihtuvat viikoittain, mutta pysyvät 150 kilometrin säteellä kerätyissä raaka-aineissa."
 

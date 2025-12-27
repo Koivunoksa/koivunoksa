@@ -4,10 +4,12 @@
             <span data-lang-text="en">Daily plates</span>
             <span data-lang-text="fi">Päivän annokset</span>
         </h2>
+        {% if section.extra.daily_intro and section.extra.daily_intro.show | default(value=true) %}
         <p>
             <span data-lang-text="en">{{ section.extra.daily_intro.en }}</span>
             <span data-lang-text="fi">{{ section.extra.daily_intro.fi }}</span>
         </p>
+        {% endif %}
     </div>
     <div class="daily-tabs">
         {% for day in days %}

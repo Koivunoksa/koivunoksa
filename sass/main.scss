@@ -602,6 +602,11 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(15,36,28,0.08);
+    border-radius: 24px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
 }
 
 .instagram-copy {
