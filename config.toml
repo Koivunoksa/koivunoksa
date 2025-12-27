@@ -40,8 +40,11 @@ button = { en = "Open Instagram", fi = "Avaa Instagram" }
 
 [extra.facebook_embed]
 page_url = "https://www.facebook.com/RavintolaKoivunoksa/"
+profile_url = "https://www.facebook.com/RavintolaKoivunoksa/"
+handle = "facebook.com/RavintolaKoivunoksa"
 heading = { en = "Koivunoksa on Facebook", fi = "Koivunoksa Facebookissa" }
 intro = { en = "Latest notices, lunch changes, and behind-the-scenes stories land here first.", fi = "Viimeisimmät tiedotteet, lounasmuutokset ja kulissitarinat päivittyvät tänne." }
+button = { en = "Follow on Facebook", fi = "Seuraa Facebookissa" }
 [extra.nav_labels.story]
 en = "Story"
 fi = "Tarina"
