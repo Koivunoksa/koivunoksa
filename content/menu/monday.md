@@ -4,7 +4,9 @@ weight = 1
 [extra]
 day = { fi = "Maanantai", en = "Monday" }
 spotlight = "Lohikeitto ja kana-tortillalasagne"
+spotlight_en = "Salmon soup and chicken tortilla lasagne"
 summary = "Pehmeä aloitus viikkoon lohikeiton ja lämpimän lasagnen kanssa."
+summary_en = "A gentle start to the week with salmon soup and warm lasagne."
 
 [[extra.dishes]]
 name_fi = "Lohikeitto"

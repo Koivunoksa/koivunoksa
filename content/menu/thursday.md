@@ -4,7 +4,9 @@ weight = 4
 [extra]
 day = { fi = "Torstai", en = "Thursday" }
 spotlight = "Hernekeitto ja rapeat kalapihvit"
+spotlight_en = "Pea soup and crisp fish patties"
 summary = "Torstain menu seuraa perinnettä: hernekeitto, piparjuurella maustettua kanaa ja pannukakku jälkiruoaksi."
+summary_en = "Thursday stays traditional: pea soup, horseradish chicken, and pancake for dessert."
 
 [[extra.dishes]]
 name_fi = "Hernekeitto"
@@ -23,6 +25,7 @@ name_fi = "Rapeat kalapihvit & kermaviilikastike"
 name_en = "Crispy fish patties & sour cream sauce"
 diets = "L, M"
 note = "Kalapihvit L, M · Kastike L, G"
+note_en = "Fish patties L, M · Sauce L, G"
 kind = "main"
 
 [[extra.dishes]]

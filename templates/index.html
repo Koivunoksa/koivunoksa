@@ -409,61 +409,120 @@
 {% set menu_meta = menu_section.extra %}
 <section class="hero" id="story">
     <div class="hero-content">
-        <h1>Birch-lined dining, rooted in Finland</h1>
-        <p>{{ section.extra.hero_intro }}</p>
+        <h1>
+            <span data-lang-text="en">{{ section.extra.hero_heading.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.hero_heading.fi }}</span>
+        </h1>
+        <p>
+            <span data-lang-text="en">{{ section.extra.hero_intro.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.hero_intro.fi }}</span>
+        </p>
         <div class="hero-meta">
-            <span>Chef-led tastings</span>
-            <span>Wild herbs & sprouts</span>
-            <span>Low-intervention cellar</span>
+            {% for meta in section.extra.hero_meta.en %}
+            <span data-lang-text="en">{{ meta }}</span>
+            {% endfor %}
+            {% for meta in section.extra.hero_meta.fi %}
+            <span data-lang-text="fi">{{ meta }}</span>
+            {% endfor %}
         </div>
     </div>
 </section>
 
 <section class="story-section">
     <div class="story-card">
-        {{ section.content | safe }}
+        <div data-lang-text="en">
+            {{ section.extra.story_copy.en | markdown | safe }}
+        </div>
+        <div data-lang-text="fi">
+            {{ section.extra.story_copy.fi | markdown | safe }}
+        </div>
     </div>
 </section>
 
 <section class="menu-section" id="menu">
     <div class="menu-header">
         <div>
-            <h2>Weekly overview</h2>
-            <p>Five mini-menus riff on textures from the birch forest: bark-smoked roots, sap-sweet glazes, and crisp leaves. Each day is limited to a handful of services so the kitchen can focus on detail.</p>
+            <h2>
+                <span data-lang-text="en">Weekly overview</span>
+                <span data-lang-text="fi">Viikon yleiskatsaus</span>
+            </h2>
+            <p>
+                <span data-lang-text="en">{{ section.extra.menu_intro.en }}</span>
+                <span data-lang-text="fi">{{ section.extra.menu_intro.fi }}</span>
+            </p>
         </div>
-        <p>Tap any day to reveal the full plates below, or scroll to the daily section for a richer dive.</p>
+        <p>
+            <span data-lang-text="en">{{ section.extra.menu_hint.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.menu_hint.fi }}</span>
+        </p>
     </div>
     <div class="menu-banner">
         <div>
-            <div class="banner-label">{{ menu_meta.week_label }}</div>
-            <div class="banner-hours">{{ menu_meta.headline }}</div>
+            <div class="banner-label">
+                <span data-lang-text="en">{{ menu_meta.week_label.en }}</span>
+                <span data-lang-text="fi">{{ menu_meta.week_label.fi }}</span>
+            </div>
+            <div class="banner-hours">
+                <span data-lang-text="en">{{ menu_meta.headline.en }}</span>
+                <span data-lang-text="fi">{{ menu_meta.headline.fi }}</span>
+            </div>
         </div>
         <div class="banner-pricing">
-            {% for price in menu_meta.pricing %}
-            <span>{{ price }}</span>
+            {% for price in menu_meta.pricing.en %}
+            <span data-lang-text="en">{{ price }}</span>
+            {% endfor %}
+            {% for price in menu_meta.pricing.fi %}
+            <span data-lang-text="fi">{{ price }}</span>
             {% endfor %}
         </div>
-        <div class="banner-includes">{{ menu_meta.includes }}</div>
-        <div class="banner-note">{{ menu_meta.allergen_note }}</div>
+        <div class="banner-includes">
+            <span data-lang-text="en">{{ menu_meta.includes.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.includes.fi }}</span>
+        </div>
+        <div class="banner-note">
+            <span data-lang-text="en">{{ menu_meta.allergen_note.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.allergen_note.fi }}</span>
+        </div>
     </div>
     <div class="week-grid">
         {% for day in days %}
         {% set day_name = day.extra.day %}
         {% set first_dish = day.extra.dishes | first %}
         {% set feature = day.extra.spotlight | default(value=first_dish.name_fi) %}
+        {% set day_label_fi = day_name.fi | default(value=day.title) %}
+        {% set day_label_en = day_name.en | default(value=day_label_fi) %}
+        {% set spotlight_fi = feature %}
+        {% set spotlight_en = day.extra.spotlight_en | default(value=feature) %}
+        {% set summary_fi = day.extra.summary | default(value="") %}
+        {% set summary_en = day.extra.summary_en | default(value=summary_fi) %}
         <article class="day-card">
-            <div class="day-label">{{ day_name.fi | default(value=day.title) }}</div>
-            {% if day_name.en %}<p class="day-theme">{{ day_name.en }}</p>{% endif %}
-            <p class="day-highlight">{{ feature }}</p>
-            <div class="day-mood">{{ day.extra.summary }}</div>
+            <div class="day-label">
+                <span data-lang-text="fi">{{ day_label_fi }}</span>
+                <span data-lang-text="en">{{ day_label_en }}</span>
+            </div>
+            <p class="day-highlight">
+                <span data-lang-text="fi">{{ spotlight_fi }}</span>
+                <span data-lang-text="en">{{ spotlight_en }}</span>
+            </p>
+            <div class="day-mood">
+                <span data-lang-text="fi">{{ summary_fi }}</span>
+                <span data-lang-text="en">{{ summary_en }}</span>
+            </div>
             <ul class="card-dishes">
                 {% for dish in day.extra.dishes %}
                     {% if loop.index <= 2 %}
-                    <li>{{ dish.name_fi }} <span>{{ dish.diets }}</span></li>
+                    <li>
+                        <span data-lang-text="fi">{{ dish.name_fi }}</span>
+                        <span data-lang-text="en">{{ dish.name_en | default(value=dish.name_fi) }}</span>
+                        <span>{{ dish.diets }}</span>
+                    </li>
                     {% endif %}
                 {% endfor %}
             </ul>
-            <button class="view-detail" data-day-link="{{ day.slug }}">See plates</button>
+            <button class="view-detail" data-day-link="{{ day.slug }}">
+                <span data-lang-text="en">See plates</span>
+                <span data-lang-text="fi">Näytä annokset</span>
+            </button>
         </article>
         {% endfor %}
     </div>
@@ -471,54 +530,89 @@
 
 <section class="daily-section" id="daily">
     <div class="daily-header">
-        <h2>Daily plates</h2>
-        <p>Hovering over birch bark textures, these plates change weekly yet stay anchored to produce gathered within 150 kilometers.</p>
+        <h2>
+            <span data-lang-text="en">Daily plates</span>
+            <span data-lang-text="fi">Päivän annokset</span>
+        </h2>
+        <p>
+            <span data-lang-text="en">{{ section.extra.daily_intro.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.daily_intro.fi }}</span>
+        </p>
     </div>
     <div class="daily-tabs">
         {% for day in days %}
         {% set day_name = day.extra.day %}
+        {% set day_label_fi = day_name.fi | default(value=day.title) %}
+        {% set day_label_en = day_name.en | default(value=day_label_fi) %}
         <button class="tab-btn{% if loop.first %} is-active{% endif %}" data-day-tab="{{ day.slug }}">
-            <span class="tab-day">{{ day_name.fi | default(value=day.title) }}</span>
-            {% if day_name.en %}<span class="tab-day-en">{{ day_name.en }}</span>{% endif %}
+            <span class="tab-day" data-lang-text="fi">{{ day_label_fi }}</span>
+            <span class="tab-day-en" data-lang-text="en">{{ day_label_en }}</span>
         </button>
         {% endfor %}
     </div>
     {% for day in days %}
     {% set day_name = day.extra.day %}
+    {% set first_dish = day.extra.dishes | first %}
+    {% set day_label_fi = day_name.fi | default(value=day.title) %}
+    {% set day_label_en = day_name.en | default(value=day_label_fi) %}
+    {% set fallback_spotlight = day.extra.spotlight | default(value=first_dish.name_fi) %}
+    {% set spotlight_fi = fallback_spotlight %}
+    {% set spotlight_en = day.extra.spotlight_en | default(value=fallback_spotlight) %}
+    {% set summary_fi = day.extra.summary | default(value="") %}
+    {% set summary_en = day.extra.summary_en | default(value=summary_fi) %}
     <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}">
         <div class="panel-heading">
             <h3>
-                {{ day_name.fi | default(value=day.title) }}
-                {% if day_name.en %} · {{ day_name.en }}{% endif %}
+                <span data-lang-text="fi">{{ day_label_fi }}</span>
+                <span data-lang-text="en">{{ day_label_en }}</span>
             </h3>
-            <p>{{ day.extra.spotlight }} — {{ day.extra.summary }}</p>
+            <p>
+                <span data-lang-text="fi">{{ spotlight_fi }} — {{ summary_fi }}</span>
+                <span data-lang-text="en">{{ spotlight_en }} — {{ summary_en }}</span>
+            </p>
         </div>
         <ul class="item-list">
             {% for dish in day.extra.dishes %}
             <li class="item-card">
                 <div class="item-heading">
                     <div class="item-name-block">
-                        <span class="item-name">{{ dish.name_fi }}</span>
-                        {% if dish.name_en %}<span class="item-translation">{{ dish.name_en }}</span>{% endif %}
+                        <span class="item-name" data-lang-text="fi">{{ dish.name_fi }}</span>
+                        <span class="item-name" data-lang-text="en">{{ dish.name_en | default(value=dish.name_fi) }}</span>
                     </div>
                     {% if dish.diets %}<span class="item-diets">{{ dish.diets }}</span>{% endif %}
                 </div>
-                {% if dish.note %}<p class="item-note">{{ dish.note }}</p>{% endif %}
+                {% if dish.note or dish.note_en %}
+                    <p class="item-note" data-lang-text="fi">{{ dish.note }}</p>
+                    <p class="item-note" data-lang-text="en">{{ dish.note_en | default(value=dish.note) }}</p>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>
     </div>
     {% endfor %}
     <div class="menu-footnotes">
-        <span>{{ menu_meta.diet_key }}</span>
-        <span>{{ menu_meta.treat }}</span>
-        <span>{{ menu_meta.welcome }}</span>
+        <span>
+            <span data-lang-text="en">{{ menu_meta.diet_key.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.diet_key.fi }}</span>
+        </span>
+        <span>
+            <span data-lang-text="en">{{ menu_meta.treat.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.treat.fi }}</span>
+        </span>
+        <span>
+            <span data-lang-text="en">{{ menu_meta.welcome.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.welcome.fi }}</span>
+        </span>
     </div>
     <div class="cta-ribbon">
         <div>
-            Booking lines open noon each Monday. Chef's counter available for 8 guests each night with a five-course progression.
+            <span data-lang-text="en">{{ section.extra.cta_text.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.cta_text.fi }}</span>
         </div>
-        <a href="mailto:{{ config.extra.contact_email }}?subject=Reservation">Reserve</a>
+        <a href="mailto:{{ config.extra.contact_email }}?subject=Reservation">
+            <span data-lang-text="en">{{ section.extra.cta_button.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.cta_button.fi }}</span>
+        </a>
     </div>
 </section>
 {% endblock content %}

@@ -4,7 +4,9 @@ weight = 3
 [extra]
 day = { fi = "Keskiviikko", en = "Wednesday" }
 spotlight = "Linssikeitto ja pyttipannu"
+spotlight_en = "Lentil soup and hash"
 summary = "Keskiviikko koostaa kasvispainotteisen keiton, klassisen pyttipannun ja runsaan tofu-curryn."
+summary_en = "Wednesday gathers a veg-focused soup, classic hash, and a rich tofu curry."
 
 [[extra.dishes]]
 name_fi = "Linssikeitto"

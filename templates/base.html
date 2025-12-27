@@ -78,6 +78,12 @@
             margin-bottom: 3rem;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo-mark {
             font-family: 'Fraunces', serif;
             letter-spacing: 0.2rem;
@@ -92,6 +98,8 @@
             font-size: 0.95rem;
             margin-left: 1.5rem;
             position: relative;
+            display: inline-flex;
+            gap: 0.35rem;
         }
 
         nav a::after {
@@ -127,10 +135,55 @@
             letter-spacing: 0.08rem;
         }
 
+        .language-switch {
+            display: inline-flex;
+            border: 1px solid rgba(15,36,28,0.2);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: var(--forest-dark);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .lang-btn.is-active {
+            background: var(--forest-dark);
+            color: #fff;
+        }
+
+        [data-lang-text] {
+            display: none !important;
+        }
+
+        body[data-lang="en"] [data-lang-text="en"],
+        body[data-lang="fi"] [data-lang-text="fi"] {
+            display: revert !important;
+        }
+
         @media (max-width: 720px) {
             header.site-header {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 2;
+                width: 100%;
             }
 
             nav a {
@@ -140,17 +193,35 @@
         }
     </style>
 </head>
-<body>
+<body data-lang="en">
     <div class="bark-veil" aria-hidden="true"></div>
     <main>
         <header class="site-header">
             <div class="logo-mark">Koivunoksa</div>
-            <nav>
-                <a href="#story">Story</a>
-                <a href="#menu">Weekly Menu</a>
-                <a href="#daily">Daily Plates</a>
-                <a href="#contact">Visit</a>
-            </nav>
+            <div class="header-actions">
+                <nav>
+                    <a href="#story">
+                        <span data-lang-text="en">Story</span>
+                        <span data-lang-text="fi">Tarina</span>
+                    </a>
+                    <a href="#menu">
+                        <span data-lang-text="en">Weekly Menu</span>
+                        <span data-lang-text="fi">Viikkolista</span>
+                    </a>
+                    <a href="#daily">
+                        <span data-lang-text="en">Daily Plates</span>
+                        <span data-lang-text="fi">Päivän annokset</span>
+                    </a>
+                    <a href="#contact">
+                        <span data-lang-text="en">Visit</span>
+                        <span data-lang-text="fi">Vierailu</span>
+                    </a>
+                </nav>
+                <div class="language-switch" role="group" aria-label="Language switch">
+                    <button class="lang-btn is-active" type="button" data-lang-switch="en">EN</button>
+                    <button class="lang-btn" type="button" data-lang-switch="fi">FI</button>
+                </div>
+            </div>
         </header>
         {% block content %}{% endblock content %}
         <footer id="contact">
@@ -171,6 +242,35 @@
             </div>
         </footer>
     </main>
+    <script>
+        (function() {
+            const storageKey = 'koivunoksaLang';
+            const getFromQuery = () => {
+                const params = new URLSearchParams(window.location.search);
+                const picked = params.get('lang');
+                return picked && ['en', 'fi'].includes(picked) ? picked : null;
+            };
+
+            const applyLang = (lang) => {
+                document.body.dataset.lang = lang;
+                document.documentElement.setAttribute('lang', lang);
+                document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+                    btn.classList.toggle('is-active', btn.dataset.langSwitch === lang);
+                });
+            };
+
+            const initial = getFromQuery() || window.localStorage.getItem(storageKey) || 'en';
+            applyLang(initial);
+
+            document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.langSwitch;
+                    window.localStorage.setItem(storageKey, lang);
+                    applyLang(lang);
+                });
+            });
+        })();
+    </script>
     {% block scripts %}{% endblock scripts %}
 </body>
 </html>

@@ -4,7 +4,9 @@ weight = 2
 [extra]
 day = { fi = "Tiistai", en = "Tuesday" }
 spotlight = "Juuressosekeitto ja paistinpannulta tulevat klassikot"
+spotlight_en = "Root vegetable puree soup and skillet classics"
 summary = "Tiistai tarjoaa lohtua: juureskeittoa, jauhelihapihvejä ja vegaanisen wokin."
+summary_en = "Tuesday leans into comfort: root soup, beef patties, and a vegan wok."
 
 [[extra.dishes]]
 name_fi = "Juuressosekeitto"
@@ -17,6 +19,7 @@ name_fi = "Jauhelihapihvit & kermakastike"
 name_en = "Beef patties with cream sauce"
 diets = "L"
 note = "Pihvit L, M · Kermakastike L, G"
+note_en = "Patties L, M · Cream sauce L, G"
 kind = "main"
 
 [[extra.dishes]]
@@ -24,6 +27,7 @@ name_fi = "Tonnikalakastike & pastaa"
 name_en = "Tuna sauce with pasta"
 diets = "L"
 note = "Kastike L, G, M · Pasta L, M, V"
+note_en = "Sauce L, G, M · Pasta L, M, V"
 kind = "main"
 
 [[extra.dishes]]
