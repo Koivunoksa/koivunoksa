@@ -43,58 +43,60 @@
         </header>
         {% block content %}{% endblock content %}
         <footer id="contact">
-            <div>
-                <strong>
-                    <span data-lang-text="en">{{ config.extra.footer_labels.find.en }}</span>
-                    <span data-lang-text="fi">{{ config.extra.footer_labels.find.fi }}</span>
-                </strong>
-                <div>{{ config.extra.address }}</div>
-                <div>{{ config.extra.city }}</div>
-            </div>
-            <div>
-                <strong>
-                    <span data-lang-text="en">{{ config.extra.footer_labels.contact.en }}</span>
-                    <span data-lang-text="fi">{{ config.extra.footer_labels.contact.fi }}</span>
-                </strong>
-                <div>{{ config.extra.phone }}</div>
-                <div>{{ config.extra.contact_email }}</div>
-                <div>{{ config.extra.business_id }}</div>
-                <div class="social-cluster">
-                    <span class="social-title">
-                        <span data-lang-text="en">{{ config.extra.footer_labels.social.en }}</span>
-                        <span data-lang-text="fi">{{ config.extra.footer_labels.social.fi }}</span>
-                    </span>
-                    <div class="footer-socials" aria-label="Social media links">
-                        {% for social in config.extra.social_links %}
-                        <a class="social-link" href="{{ social.url }}" target="_blank" rel="noopener" aria-label="{{ social.name }}">
-                            {% if social.icon == "instagram" %}
-                            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-                                <path d="M16.5 2h-9A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2zm3.5 14.5A3.5 3.5 0 0116.5 20h-9A3.5 3.5 0 014 16.5v-9A3.5 3.5 0 017.5 4h9A3.5 3.5 0 0120 7.5z" />
-                                <path d="M12 7.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm0 7A2.5 2.5 0 1114.5 12 2.5 2.5 0 0112 14.5z" />
-                                <circle cx="17.5" cy="6.5" r="1.1" />
-                            </svg>
-                            {% elif social.icon == "facebook" %}
-                            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-                                <path d="M15 4h2.5V0H15a5 5 0 00-5 5v3H7v4h3v12h4V12h3.2l.6-4H14V5a1 1 0 011-1z" />
-                            </svg>
-                            {% endif %}
-                            <span>{{ social.name }}</span>
-                        </a>
-                        {% endfor %}
+            <div class="footer-info">
+                <div>
+                    <strong>
+                        <span data-lang-text="en">{{ config.extra.footer_labels.find.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.footer_labels.find.fi }}</span>
+                    </strong>
+                    <div>{{ config.extra.address }}</div>
+                    <div>{{ config.extra.city }}</div>
+                </div>
+                <div>
+                    <strong>
+                        <span data-lang-text="en">{{ config.extra.footer_labels.contact.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.footer_labels.contact.fi }}</span>
+                    </strong>
+                    <div>{{ config.extra.phone }}</div>
+                    <div>{{ config.extra.contact_email }}</div>
+                    <div>{{ config.extra.business_id }}</div>
+                    <div class="social-cluster">
+                        <span class="social-title">
+                            <span data-lang-text="en">{{ config.extra.footer_labels.social.en }}</span>
+                            <span data-lang-text="fi">{{ config.extra.footer_labels.social.fi }}</span>
+                        </span>
+                        <div class="footer-socials" aria-label="Social media links">
+                            {% for social in config.extra.social_links %}
+                            <a class="social-link" href="{{ social.url }}" target="_blank" rel="noopener" aria-label="{{ social.name }}">
+                                {% if social.icon == "instagram" %}
+                                <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                                    <path d="M16.5 2h-9A5.5 5.5 0 002 7.5v9A5.5 5.5 0 007.5 22h9a5.5 5.5 0 005.5-5.5v-9A5.5 5.5 0 0016.5 2zm3.5 14.5A3.5 3.5 0 0116.5 20h-9A3.5 3.5 0 014 16.5v-9A3.5 3.5 0 017.5 4h9A3.5 3.5 0 0120 7.5z" />
+                                    <path d="M12 7.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm0 7A2.5 2.5 0 1114.5 12 2.5 2.5 0 0112 14.5z" />
+                                    <circle cx="17.5" cy="6.5" r="1.1" />
+                                </svg>
+                                {% elif social.icon == "facebook" %}
+                                <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                                    <path d="M15 4h2.5V0H15a5 5 0 00-5 5v3H7v4h3v12h4V12h3.2l.6-4H14V5a1 1 0 011-1z" />
+                                </svg>
+                                {% endif %}
+                                <span>{{ social.name }}</span>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <strong>
+                        <span data-lang-text="en">{{ config.extra.footer_labels.hours.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.footer_labels.hours.fi }}</span>
+                    </strong>
+                    <div>
+                        <span data-lang-text="en">{{ config.extra.hours_text.lunch.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.hours_text.lunch.fi }}</span>
                     </div>
                 </div>
             </div>
-            <div>
-                <strong>
-                    <span data-lang-text="en">{{ config.extra.footer_labels.hours.en }}</span>
-                    <span data-lang-text="fi">{{ config.extra.footer_labels.hours.fi }}</span>
-                </strong>
-                <div>
-                    <span data-lang-text="en">{{ config.extra.hours_text.lunch.en }}</span>
-                    <span data-lang-text="fi">{{ config.extra.hours_text.lunch.fi }}</span>
-                </div>
-            </div>
-            <div>
+            <div class="footer-map-section">
                 <strong>
                     <span data-lang-text="en">{{ config.extra.footer_labels.map.en }}</span>
                     <span data-lang-text="fi">{{ config.extra.footer_labels.map.fi }}</span>
