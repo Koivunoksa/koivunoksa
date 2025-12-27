@@ -32,7 +32,7 @@
     {% set spotlight_en = day.extra.spotlight_en | default(value=fallback_spotlight) %}
     {% set summary_fi = day.extra.summary | default(value="") %}
     {% set summary_en = day.extra.summary_en | default(value=summary_fi) %}
-    <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}">
+    <div class="detail-panel{% if loop.first %} is-active{% endif %}" data-day-panel="{{ day.slug }}" id="daily-{{ day.slug }}">
         <div class="panel-heading">
             <h3>
                 <span data-lang-text="fi">{{ day_label_fi }}</span>
