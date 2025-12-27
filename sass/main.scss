@@ -506,27 +506,6 @@ section {
     color: rgba(0,0,0,0.68);
 }
 
-.cta-ribbon {
-    margin-top: 2.5rem;
-    padding: 1.5rem;
-    border-radius: 20px;
-    background: linear-gradient(120deg, rgba(127,177,103,0.2), rgba(212,155,60,0.15));
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cta-ribbon a {
-    border-radius: 999px;
-    background: var(--forest-mid);
-    color: #fff;
-    padding: 0.7rem 1.6rem;
-    text-decoration: none;
-    letter-spacing: 0.05rem;
-}
-
 .menu-footnotes {
     margin-top: 1.5rem;
     display: flex;
@@ -570,11 +549,6 @@ section {
     }
 
     .item-heading {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cta-ribbon {
         flex-direction: column;
         align-items: flex-start;
     }

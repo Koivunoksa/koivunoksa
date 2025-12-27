@@ -26,12 +26,12 @@ fi = [
 en = """
 ## Table beneath the birches
 
-Koivunoksa keeps its focus on a concise weekly menu so that every ingredient can be harvested, preserved, and plated at its peak. Lunch leans lighter, dinner stretches into five thoughtful waves, and a chef's counter is available for deeper tastings with advance booking. Reservations open 30 days ahead.
+Koivunoksa keeps its focus on a concise weekly menu so that every ingredient can be harvested, preserved, and plated at its peak. Lunch leans lighter, dinner stretches into five thoughtful waves, and the chef's counter is saved for deeper tastings for those who wander in. We are walk-in only for the moment—just arrive hungry.
 """
 fi = """
 ## Pöytä koivujen alla
 
-Koivunoksa rakentaa viikon ruokalistan tarkasti, jotta jokainen raaka-aine voidaan nostaa esiin parhaimmillaan. Lounas on kevyempi, illallinen etenee viiteen huolelliseen aalttoon ja chef's counter tarjoaa syvemmän tastingin ennakkovarauksella. Pöydät avataan varattaviksi 30 päivää etukäteen.
+Koivunoksa rakentaa viikon ruokalistan tarkasti, jotta jokainen raaka-aine voidaan nostaa esiin parhaimmillaan. Lounas on kevyempi, illallinen etenee viiteen huolelliseen aalttoon ja chef's counter tarjoaa syvemmän elämyksen kaikille, jotka poikkeavat paikalle. Tällä hetkellä otamme vastaan vain walk-in vieraita – tule paikalle, kun koivut kutsuvat.
 """
 
 [extra.menu_intro]
@@ -46,11 +46,4 @@ fi = "Valitse viikonpäivä nähdäksesi annokset tarkemmin tai jatka päivänä
 en = "Hovering over birch bark textures, these plates change weekly yet stay anchored to produce gathered within 150 kilometers."
 fi = "Koivunkuorta mukailevat annokset vaihtuvat viikoittain, mutta pysyvät 150 kilometrin säteellä kerätyissä raaka-aineissa."
 
-[extra.cta_text]
-en = "Booking lines open noon each Monday. Chef's counter available for 8 guests each night with a five-course progression."
-fi = "Varaukset avautuvat maanantaisin klo 12. Chef's counter tarjoaa 8 paikalle viiden ruokalajin elämyksen iltaisin."
-
-[extra.cta_button]
-en = "Reserve"
-fi = "Varaa"
 +++

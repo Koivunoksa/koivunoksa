@@ -11,9 +11,10 @@ highlight_code = false
 
 [extra]
 city = "Espoo"
-contact_email = "table@koivunoksa.fi"
+contact_email = "ravintolakoivunoksa@hotmail.com"
 phone = "050 3730084"
 address = "Mänkimiehentie 14 G, 02780 Espoo"
+business_id = "Y-tunnus: 3018322-3"
 [extra.nav_labels.story]
 en = "Story"
 fi = "Tarina"
@@ -32,9 +33,9 @@ fi = "Vierailu"
 
 [extra.footer_labels]
 find = { en = "Find us", fi = "Löydä meidät" }
-reserve = { en = "Reserve", fi = "Varaa" }
+contact = { en = "Contact", fi = "Yhteys" }
 hours = { en = "Hours", fi = "Aukioloajat" }
 
 [extra.hours_text]
-lunch = { en = "Lunch Tue-Fri 11:30-14:00", fi = "Lounas ti-pe 11:30-14:00" }
+lunch = { en = "Lunch 10:30-13:00", fi = "Lounas 10.30 - 13.00" }
 dinner = { en = "Dinner Mon-Sat 17:30-23:00", fi = "Illallinen ma-la 17:30-23:00" }
