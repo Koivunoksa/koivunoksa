@@ -40,6 +40,7 @@ en = "Five mini-menus riff on textures from the birch forest: bark-smoked roots,
 fi = "Viisi mini-menua kuvaa koivumetsän tekstuureja: kuorilla savustetut juurekset, mahlalla makeutetut lasuurit ja rapsakat lehdet. Päivittäin on vain muutama kattaus, jotta keittiö voi keskittyä viimeiseenkin yksityiskohtaan."
 
 [extra.menu_hint]
+show = false
 en = "Tap any day to reveal the full plates below, or scroll to the daily section for a deeper dive."
 fi = "Valitse viikonpäivä nähdäksesi annokset tarkemmin tai jatka päivänäkymään alapuolella."
 

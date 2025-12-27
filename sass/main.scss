@@ -121,6 +121,11 @@ footer strong {
     font-family: 'Fraunces', serif;
     font-size: 0.9rem;
     letter-spacing: 0.08rem;
+ 
+    .view-detail:focus-visible {
+        outline: 2px solid var(--accent-amber);
+        outline-offset: 3px;
+    }
 }
 
 .social-cluster {
@@ -450,6 +455,11 @@ section {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
+}
+
+.view-detail:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 3px;
 }
 
 .view-detail:hover {
