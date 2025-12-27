@@ -43,9 +43,15 @@
 
         document.querySelectorAll('[data-day-link]').forEach(link => {
             link.addEventListener('click', (event) => {
+                event.preventDefault();
                 const slug = link.dataset.dayLink;
                 if (!slug) return;
                 activatePanel(slug);
+                const section = document.getElementById('daily');
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.pushState(null, null, '#daily-' + slug);
+                }
             });
         });
 
