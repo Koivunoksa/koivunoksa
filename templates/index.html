@@ -33,24 +33,19 @@
             btn.addEventListener('click', () => activatePanel(btn.dataset.dayTab));
         });
 
-        const dailySection = document.getElementById('daily');
-        const scrollToPanel = (slug) => {
-            const target = document.getElementById(`daily-${slug}`) || document.querySelector(`[data-day-panel="${slug}"]`);
-            const destination = target || dailySection;
-            window.requestAnimationFrame(() => {
-                destination.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (destination.id) {
-                    window.history.replaceState(null, '', `#${destination.id}`);
-                }
-            });
+        const getHashDay = () => {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#daily-')) {
+                return hash.replace('#daily-', '');
+            }
+            return null;
         };
 
-        document.querySelectorAll('[data-day-link]').forEach(btn => {
-            btn.addEventListener('click', (event) => {
-                event.preventDefault();
-                const slug = btn.dataset.dayLink;
+        document.querySelectorAll('[data-day-link]').forEach(link => {
+            link.addEventListener('click', (event) => {
+                const slug = link.dataset.dayLink;
+                if (!slug) return;
                 activatePanel(slug);
-                scrollToPanel(slug);
             });
         });
 
@@ -67,7 +62,8 @@
             return available[0];
         };
 
-        const defaultDay = pickDefaultDay();
+        const hashDay = getHashDay();
+        const defaultDay = hashDay || pickDefaultDay();
         if (defaultDay) {
             activatePanel(defaultDay);
         }

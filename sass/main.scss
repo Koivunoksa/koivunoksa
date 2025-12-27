@@ -440,6 +440,7 @@ section {
 .view-detail {
     margin-top: auto;
     align-self: flex-start;
+    display: inline-flex;
     border: none;
     background: var(--forest-dark);
     color: #fff;
@@ -448,6 +449,7 @@ section {
     font-size: 0.9rem;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
 }
 
 .view-detail:hover {
