@@ -1,13 +1,18 @@
 <section class="hero" id="story">
     <div class="hero-content">
+        {% if section.extra.hero_heading and section.extra.hero_heading.show | default(value=true) %}
         <h1>
             <span data-lang-text="en">{{ section.extra.hero_heading.en }}</span>
             <span data-lang-text="fi">{{ section.extra.hero_heading.fi }}</span>
         </h1>
+        {% endif %}
+        {% if section.extra.hero_intro and section.extra.hero_intro.show | default(value=true) %}
         <p>
             <span data-lang-text="en">{{ section.extra.hero_intro.en }}</span>
             <span data-lang-text="fi">{{ section.extra.hero_intro.fi }}</span>
         </p>
+        {% endif %}
+        {% if section.extra.hero_meta and section.extra.hero_meta.show | default(value=true) %}
         <div class="hero-meta">
             {% for meta in section.extra.hero_meta.en %}
             <span data-lang-text="en">{{ meta }}</span>
@@ -16,5 +21,6 @@
             <span data-lang-text="fi">{{ meta }}</span>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 </section>

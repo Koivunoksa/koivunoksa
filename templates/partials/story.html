@@ -1,3 +1,4 @@
+{% if section.extra.story_copy and section.extra.story_copy.show | default(value=true) %}
 <section class="story-section">
     <div class="story-card">
         <div data-lang-text="en">
@@ -8,3 +9,4 @@
         </div>
     </div>
 </section>
+{% endif %}

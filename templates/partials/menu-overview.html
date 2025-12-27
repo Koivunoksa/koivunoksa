@@ -5,15 +5,19 @@
                 <span data-lang-text="en">Weekly overview</span>
                 <span data-lang-text="fi">Viikon yleiskatsaus</span>
             </h2>
+            {% if section.extra.menu_intro and section.extra.menu_intro.show | default(value=true) %}
             <p>
                 <span data-lang-text="en">{{ section.extra.menu_intro.en }}</span>
                 <span data-lang-text="fi">{{ section.extra.menu_intro.fi }}</span>
             </p>
+            {% endif %}
         </div>
+        {% if section.extra.menu_hint and section.extra.menu_hint.show | default(value=true) %}
         <p>
             <span data-lang-text="en">{{ section.extra.menu_hint.en }}</span>
             <span data-lang-text="fi">{{ section.extra.menu_hint.fi }}</span>
         </p>
+        {% endif %}
     </div>
     <div class="menu-banner">
         <div>
