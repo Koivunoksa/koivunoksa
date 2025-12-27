@@ -644,9 +644,16 @@ section {
     transform: translateX(4px);
 }
 
+.instagram-embed-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
 .instagram-embed {
     width: 100%;
-    min-height: 380px;
+    min-height: 360px;
 }
 
 .instagram-embed blockquote {

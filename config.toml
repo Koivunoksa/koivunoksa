@@ -29,6 +29,10 @@ url = "https://www.facebook.com/RavintolaKoivunoksa/"
 
 [extra.instagram_embed]
 permalink = "https://www.instagram.com/p/DO-bbAhgpsz/"
+posts = [
+	"https://www.instagram.com/p/DO-bbAhgpsz/",
+    "https://www.instagram.com/ravintolakoivunoksa/p/DJn68JBC-5o/"
+]
 profile_url = "https://www.instagram.com/ravintolakoivunoksa/"
 heading = { en = "Birch glimpses on Instagram", fi = "Koivunoksan Instagram" }
 intro = { en = "Swipe through the prep table and plating straight from @ravintolakoivunoksa.", fi = "Kurki @ravintolakoivunoksa-tilin kulisseihin ja annoskuviin." }

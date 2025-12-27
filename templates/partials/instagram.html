@@ -1,4 +1,5 @@
 {% if config.extra.instagram_embed %}
+{% set embed_posts = config.extra.instagram_embed.posts | default(value=[]) %}
 <section class="instagram-section" id="instagram">
     <div class="instagram-card">
         <div class="instagram-copy">
@@ -16,9 +17,19 @@
                 <span data-lang-text="fi">{{ config.extra.instagram_embed.button.fi }}</span>
             </a>
         </div>
-        {% if config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
-        <div class="instagram-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="{{ config.extra.instagram_embed.permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+        {% if embed_posts | length > 0 %}
+        <div class="instagram-embed-grid">
+            {% for permalink in embed_posts %}
+            <div class="instagram-embed">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+            </div>
+            {% endfor %}
+        </div>
+        {% elif config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
+        <div class="instagram-embed-grid">
+            <div class="instagram-embed">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ config.extra.instagram_embed.permalink }}" data-instgrm-version="14" data-instgrm-captioned="true"></blockquote>
+            </div>
         </div>
         {% endif %}
     </div>

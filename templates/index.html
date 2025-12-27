@@ -41,7 +41,8 @@
         });
     })();
 </script>
-{% if config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0 %}
+{% set embed_posts = config.extra.instagram_embed.posts | default(value=[]) %}
+{% if embed_posts | length > 0 or (config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0) %}
 <script async src="https://www.instagram.com/embed.js"></script>
 {% endif %}
 {% endblock scripts %}
