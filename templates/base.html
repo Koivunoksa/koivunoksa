@@ -16,7 +16,11 @@
     <main>
         {% set home_section = get_section(path="_index.md") %}
         <header class="site-header">
-            <div class="logo-mark"><img src="{{ get_url(path="koivunoksalogo.png") }}" alt="Koivunoksa"></div>
+            <div class="logo-mark">
+                <a href="{{ config.base_url }}" style="text-decoration: none; border: none;">
+                    <img src="{{ get_url(path="koivunoksalogo.png") }}" alt="Koivunoksa">
+                </a>
+            </div>
             <div class="header-actions">
                 <nav>
                     <a href="{{ get_url(path="@/catering.md") }}">

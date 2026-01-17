@@ -25,7 +25,7 @@
         <div>
             <h2>
                 <span data-lang-text="en">Weekly menu</span>
-                <span data-lang-text="fi">Viikon menu</span>
+                <span data-lang-text="fi">Tarjolla</span>
             </h2>
             <div style="margin-bottom: 1rem;">
                 <div class="banner-label">
@@ -54,7 +54,11 @@
         </button>
     </div>
     <div class="week-grid">
+        {% set current_date = now() | date(format="%Y%m%d") | int %}
         {% for day in days %}
+        {% if day.date %}
+        {% set day_date = day.date | date(format="%Y%m%d") | int %}
+        {% if day_date >= current_date %}
         {% set day_name = day.extra.day %}
         {% set first_dish = day.extra.dishes | first %}
         {% set feature = day.extra.spotlight | default(value=first_dish.name_fi) %}
@@ -90,6 +94,8 @@
                 {% endfor %}
             </ul>
         </article>
+        {% endif %}
+        {% endif %}
         {% endfor %}
     </div>
 </section>
