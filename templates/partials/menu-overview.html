@@ -1,14 +1,8 @@
 <section class="menu-section" id="menu">
     <div class="menu-banner">
-        <div>
-            <div class="banner-label">
-                <span data-lang-text="en">{{ menu_meta.week_label.en }}</span>
-                <span data-lang-text="fi">{{ menu_meta.week_label.fi }}</span>
-            </div>
-            <div class="banner-hours">
-                <span data-lang-text="en">{{ menu_meta.headline.en }}</span>
-                <span data-lang-text="fi">{{ menu_meta.headline.fi }}</span>
-            </div>
+        <div class="banner-hours">
+            <span data-lang-text="en">{{ menu_meta.headline.en }}</span>
+            <span data-lang-text="fi">{{ menu_meta.headline.fi }}</span>
         </div>
         <div class="banner-pricing">
             {% for price in menu_meta.pricing.en %}
@@ -33,6 +27,12 @@
                 <span data-lang-text="en">Weekly menu</span>
                 <span data-lang-text="fi">Viikon menu</span>
             </h2>
+            <div style="margin-bottom: 1rem;">
+                <div class="banner-label">
+                    <span data-lang-text="en">{{ menu_meta.week_label.en }}</span>
+                    <span data-lang-text="fi">{{ menu_meta.week_label.fi }}</span>
+                </div>
+            </div>
             {% if section.extra.menu_intro and section.extra.menu_intro.show | default(value=true) %}
             <p>
                 <span data-lang-text="en">{{ section.extra.menu_intro.en }}</span>

@@ -6,8 +6,8 @@ transparent = true
 lunch_hours = "10:30-13:00"
 
 [extra.week_label]
-en = "Lunch 8-12 Dec 2025 · Week 50"
-fi = "Lounas 8.-12.12.2025 · Viikko 50"
+en = "8-12 Dec 2025 · Week 50"
+fi = "8.-12.12.2025 · Viikko 50"
 
 [extra.headline]
 en = "Lunch service 10:30-13:00"
