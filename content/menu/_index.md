@@ -20,9 +20,10 @@ en = [
   "Students & seniors €11.50"
 ]
 fi = [
-  "Lounas 13,00 €",
+  "Lounas 13,50 €",
   "Keitto 11,50 €",
-  "Eläkeläiset/opiskelijat 11,50 €"
+  "Eläkeläiset/opiskelijat 12,00 €",
+  "Lounaan saat myös takeaway boxiin tai isommat määrät 16,50 €/kg"
 ]
 
 [extra.includes]

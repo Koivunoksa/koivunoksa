@@ -4,7 +4,7 @@ description = "Seasonal tasting menus shaped by birch forests"
 [extra]
 [extra.hero_heading]
 en = "Birch-lined dining, rooted in Finland"
-fi = "Koivunoksan koivujen reunustama ruokailu"
+fi = "Koivunoksa - koivujen reunustama ruokailu"
 
 [extra.hero_intro]
 en = "Koivunoksa marries contemporary Nordic technique with the calm of Finnish birch groves. Every plate leans on wild herbs, tree saps, and small-scale producers from the lake district."
