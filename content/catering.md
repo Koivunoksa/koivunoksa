@@ -14,14 +14,14 @@ fi = "Tuomme Koivunoksan elämyksen yksityistilaisuuksiisi. Intiimeistä illalli
 
 [extra.hero_meta]
 en = [
-    "Private Events",
-    "Seasonal Menus",
-    "Custom Experiences"
+    "",
+    "",
+    ""
 ]
 fi = [
-    "Yksityistilaisuudet",
-    "Kausimenut",
-    "Räätälöidyt elämykset"
+    "",
+    "",
+    ""
 ]
 
 [extra.story_copy]

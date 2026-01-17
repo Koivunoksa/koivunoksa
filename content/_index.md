@@ -8,7 +8,7 @@ fi = "Koivunoksan koivujen reunustama ruokailu"
 
 [extra.hero_intro]
 en = "Koivunoksa marries contemporary Nordic technique with the calm of Finnish birch groves. Every plate leans on wild herbs, tree saps, and small-scale producers from the lake district."
-fi = "Koivunoksa yhdistää pohjoismaisen keittiön ja suomalaisen koivumetsän rauhan. Jokainen annos pohjautuu Puhtaisiin raaka-aineisiin ja kotimaisuuteen."
+fi = "Koivunoksa yhdistää pohjoismaisen keittiön ja suomalaisen koivumetsän rauhan. Jokainen annos pohjautuu Puhtaisiin raaka-aineisiin ja kotimaisuuteen. Koivunoksa rakentaa viikon ruokalistan tarkasti, jotta jokainen raaka-aine voidaan nostaa esiin parhaimmillaan. Tällä hetkellä otamme vastaan vain walk-in vieraita – tule paikalle, kun koivut kutsuvat."
 
 [extra.arrival_instructions]
 en = """
@@ -26,14 +26,14 @@ Autolla saapuville on runsaasti parkkitilaa.
 
 [extra.hero_meta]
 en = [
-    "Chef-led tastings",
-    "Wild herbs & sprouts",
-    "Low-intervention cellar"
+    "",
+    "",
+    "r"
 ]
 fi = [
-    "Keittiömestarin menut",
-    "Villiyrtit ja versot",
-    "Luonnollinen viinilista"
+    "",
+    "",
+    ""
 ]
 
 [extra.story_copy]
