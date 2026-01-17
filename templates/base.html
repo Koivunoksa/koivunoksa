@@ -44,18 +44,6 @@
                     </strong>
                     <div>{{ config.extra.address }}</div>
                     <div>{{ config.extra.city }}</div>
-                    {% if home_section.extra.arrival_instructions %}
-                    <details class="arrival-details">
-                        <summary class="arrival-summary">
-                            <span data-lang-text="fi">Saapumisohjeet</span>
-                            <span data-lang-text="en">Arrival Instructions</span>
-                        </summary>
-                        <div class="arrival-content">
-                            <div data-lang-text="fi">{{ home_section.extra.arrival_instructions.fi | markdown | safe }}</div>
-                            <div data-lang-text="en">{{ home_section.extra.arrival_instructions.en | markdown | safe }}</div>
-                        </div>
-                    </details>
-                    {% endif %}
                 </div>
                 <div>
                     <strong>
