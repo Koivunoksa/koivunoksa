@@ -56,12 +56,18 @@
                         <span data-lang-text="en">{{ facebook_embed.intro.en }}</span>
                         <span data-lang-text="fi">{{ facebook_embed.intro.fi }}</span>
                     </p>
-                    {% if facebook_embed.profile_url %}
-                    <a class="facebook-btn" href="{{ facebook_embed.profile_url }}" target="_blank" rel="noreferrer noopener">
-                        <span data-lang-text="en">{{ facebook_embed.button.en }}</span>
-                        <span data-lang-text="fi">{{ facebook_embed.button.fi }}</span>
-                    </a>
-                    {% endif %}
+                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        {% if facebook_embed.profile_url %}
+                        <a class="facebook-btn" href="{{ facebook_embed.profile_url }}" target="_blank" rel="noreferrer noopener">
+                            <span data-lang-text="en">{{ facebook_embed.button.en }}</span>
+                            <span data-lang-text="fi">{{ facebook_embed.button.fi }}</span>
+                        </a>
+                        {% endif %}
+                        <a class="oiva-btn" href="https://www.oivahymy.fi/api/raportti/223921" target="_blank" rel="noreferrer noopener">
+                            <span data-lang-text="en">Oiva Report</span>
+                            <span data-lang-text="fi">Oiva-raportti</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="facebook-frame">
                     <iframe

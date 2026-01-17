@@ -10,6 +10,20 @@ fi = "Koivunoksan koivujen reunustama ruokailu"
 en = "Koivunoksa marries contemporary Nordic technique with the calm of Finnish birch groves. Every plate leans on wild herbs, tree saps, and small-scale producers from the lake district."
 fi = "Koivunoksa yhdistää pohjoismaisen modernin keittiön ja suomalaisen koivumetsän rauhan. Jokainen annos pohjaa villiyrtteihin, mahlan makeuteen ja lähituottajien satoon."
 
+[extra.arrival_instructions]
+en = """
+**Arrival Instructions**
+
+We are located at Mänkimiehentie 14 G. The entrance is from the courtyard side. 
+If you arrive by car, there are guest parking spots.
+"""
+fi = """
+**Saapumisohjeet**
+
+Sijaitsemme osoitteessa Mänkimiehentie 14 G. Sisäänkäynti on sisäpihan puolelta.
+Autolla saapuville on runsaasti parkkitilaa.
+"""
+
 [extra.hero_meta]
 en = [
     "Chef-led tastings",
