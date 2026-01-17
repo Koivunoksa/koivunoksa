@@ -4,9 +4,9 @@ date = 2025-12-30
 weight = 2
 [extra]
 day = { fi = "Tiistai", en = "Tuesday" }
-spotlight = "Juuressosekeitto ja paistinpannulta tulevat klassikot"
+spotlight = "Spotlight teksti"
 spotlight_en = "Root vegetable puree soup and skillet classics"
-summary = "Tiistai tarjoaa lohtua: juureskeittoa, jauhelihapihvejä ja vegaanisen wokin."
+summary = ""
 summary_en = "Tuesday leans into comfort: root soup, beef patties, and a vegan wok."
 
 [[extra.dishes]]

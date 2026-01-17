@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+
+{% block head %}{% endblock head %}
+
+{% block content %}
+{# The partials expect 'section' variable, but in a page context it is 'page'. 
+   We can alias it or update partials. Updating partials is risky for existing pages.
+   Let's set section = page #}
+{% set section = page %}
+
+{% include "partials/hero.html" %}
+{% include "partials/story.html" %}
+
+{# Maybe add a specific contact section for catering if needed, 
+   but for now the footer contact info is there. 
+   We could add a specific "Request Catering" button or section here. #}
+
+{% endblock content %}

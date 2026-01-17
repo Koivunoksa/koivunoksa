@@ -49,6 +49,10 @@ button = { en = "Follow on Facebook", fi = "Seuraa Facebookissa" }
 en = "Story"
 fi = "Tarina"
 
+[extra.nav_labels.catering]
+en = "Catering"
+fi = "Catering"
+
 [extra.nav_labels.menu]
 en = "Weekly Menu"
 fi = "Viikkolista"

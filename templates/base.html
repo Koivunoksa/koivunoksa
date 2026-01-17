@@ -18,19 +18,23 @@
             <div class="logo-mark">Koivunoksa</div>
             <div class="header-actions">
                 <nav>
-                    <a href="#story">
+                    <a href="{{ get_url(path="@/_index.md") }}#story">
                         <span data-lang-text="en">{{ config.extra.nav_labels.story.en }}</span>
                         <span data-lang-text="fi">{{ config.extra.nav_labels.story.fi }}</span>
                     </a>
-                    <a href="#menu">
+                    <a href="{{ get_url(path="@/_index.md") }}#menu">
                         <span data-lang-text="en">{{ config.extra.nav_labels.menu.en }}</span>
                         <span data-lang-text="fi">{{ config.extra.nav_labels.menu.fi }}</span>
                     </a>
-                    <a href="#daily">
+                    <a href="{{ get_url(path="@/_index.md") }}#daily">
                         <span data-lang-text="en">{{ config.extra.nav_labels.daily.en }}</span>
                         <span data-lang-text="fi">{{ config.extra.nav_labels.daily.fi }}</span>
                     </a>
-                    <a href="#contact">
+                    <a href="{{ get_url(path="@/catering.md") }}">
+                        <span data-lang-text="en">{{ config.extra.nav_labels.catering.en }}</span>
+                        <span data-lang-text="fi">{{ config.extra.nav_labels.catering.fi }}</span>
+                    </a>
+                    <a href="{{ get_url(path="@/_index.md") }}#contact">
                         <span data-lang-text="en">{{ config.extra.nav_labels.contact.en }}</span>
                         <span data-lang-text="fi">{{ config.extra.nav_labels.contact.fi }}</span>
                     </a>
