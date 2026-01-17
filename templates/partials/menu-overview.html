@@ -47,6 +47,12 @@
             <span data-lang-text="fi">{{ menu_meta.allergen_note.fi }}</span>
         </div>
     </div>
+    <div class="print-actions" style="margin-bottom: 1rem; display: flex; justify-content: flex-end;">
+        <button type="button" class="view-detail">
+            <span data-lang-text="en">Print weekly list</span>
+            <span data-lang-text="fi">Tulosta viikkolista</span>
+        </button>
+    </div>
     <div class="week-grid">
         {% for day in days %}
         {% set day_name = day.extra.day %}

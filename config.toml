@@ -50,8 +50,8 @@ en = "Story"
 fi = "Tarina"
 
 [extra.nav_labels.catering]
-en = "Catering"
-fi = "Catering"
+en = "Koivunoksa Catering"
+fi = "Koivunoksa Catering"
 
 [extra.nav_labels.menu]
 en = "Weekly Menu"
