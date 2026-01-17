@@ -23,20 +23,4 @@ fi = [
     "",
     ""
 ]
-
-[extra.story_copy]
-en = """
-## Catering by Koivunoksa
-
-Whether you are hosting a wedding, a corporate retreat, or a special family gathering, we can tailor a menu that reflects the season and your preferences. We work closely with you to design a dining experience that feels both personal and rooted in nature.
-
-Please contact us via email or phone to discuss your event.
-"""
-fi = """
-## Koivunoksan Catering
-
-Olitpa järjestämässä häitä, yrityksen virkistyspäivää tai erityistä perhejuhlaa, voimme räätälöidä menun, joka heijastaa vuodenaikaa ja toiveitasi. Työskentelemme tiiviisti kanssasi suunnitellaksemme ruokailuelämyksen, joka tuntuu sekä henkilökohtaiselta että luonnonläheiseltä.
-
-Ota yhteyttä sähköpostitse tai puhelimitse keskustellaksesi tilaisuudestasi.
-"""
 +++
