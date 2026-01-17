@@ -8,7 +8,7 @@ fi = "Koivunoksan koivujen reunustama ruokailu"
 
 [extra.hero_intro]
 en = "Koivunoksa marries contemporary Nordic technique with the calm of Finnish birch groves. Every plate leans on wild herbs, tree saps, and small-scale producers from the lake district."
-fi = "Koivunoksa yhdistää pohjoismaisen keittiön ja suomalaisen koivumetsän rauhan. Jokainen annos pohjaa Puhtaisiin raaka-aineisiin ja kotimaisuuteen.
+fi = "Koivunoksa yhdistää pohjoismaisen keittiön ja suomalaisen koivumetsän rauhan. Jokainen annos pohjautuu Puhtaisiin raaka-aineisiin ja kotimaisuuteen."
 
 [extra.arrival_instructions]
 en = """
