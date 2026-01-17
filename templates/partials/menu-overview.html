@@ -1,24 +1,4 @@
 <section class="menu-section" id="menu">
-    <div class="menu-header">
-        <div>
-            <h2>
-                <span data-lang-text="en">Weekly overview</span>
-                <span data-lang-text="fi">Viikon yleiskatsaus</span>
-            </h2>
-            {% if section.extra.menu_intro and section.extra.menu_intro.show | default(value=true) %}
-            <p>
-                <span data-lang-text="en">{{ section.extra.menu_intro.en }}</span>
-                <span data-lang-text="fi">{{ section.extra.menu_intro.fi }}</span>
-            </p>
-            {% endif %}
-        </div>
-        {% if section.extra.menu_hint and section.extra.menu_hint.show | default(value=true) %}
-        <p>
-            <span data-lang-text="en">{{ section.extra.menu_hint.en }}</span>
-            <span data-lang-text="fi">{{ section.extra.menu_hint.fi }}</span>
-        </p>
-        {% endif %}
-    </div>
     <div class="menu-banner">
         <div>
             <div class="banner-label">
@@ -46,6 +26,26 @@
             <span data-lang-text="en">{{ menu_meta.allergen_note.en }}</span>
             <span data-lang-text="fi">{{ menu_meta.allergen_note.fi }}</span>
         </div>
+    </div>
+    <div class="menu-header">
+        <div>
+            <h2>
+                <span data-lang-text="en">Weekly menu</span>
+                <span data-lang-text="fi">Viikon menu</span>
+            </h2>
+            {% if section.extra.menu_intro and section.extra.menu_intro.show | default(value=true) %}
+            <p>
+                <span data-lang-text="en">{{ section.extra.menu_intro.en }}</span>
+                <span data-lang-text="fi">{{ section.extra.menu_intro.fi }}</span>
+            </p>
+            {% endif %}
+        </div>
+        {% if section.extra.menu_hint and section.extra.menu_hint.show | default(value=true) %}
+        <p>
+            <span data-lang-text="en">{{ section.extra.menu_hint.en }}</span>
+            <span data-lang-text="fi">{{ section.extra.menu_hint.fi }}</span>
+        </p>
+        {% endif %}
     </div>
     <div class="print-actions" style="margin-bottom: 1rem; display: flex; justify-content: center;">
         <button type="button" class="view-detail">
