@@ -776,8 +776,7 @@ section {
     line-height: 1.5;
 }
 
-.facebook-btn,
-.oiva-btn {
+.facebook-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -792,15 +791,13 @@ section {
     text-transform: uppercase;
 }
 
-.facebook-btn::after,
-.oiva-btn::after {
+.facebook-btn::after {
     content: "→";
     font-size: 1rem;
     transition: transform 0.2s ease;
 }
 
-.facebook-btn:hover::after,
-.oiva-btn:hover::after {
+.facebook-btn:hover::after {
     transform: translateX(4px);
 }
 
