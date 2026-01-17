@@ -3,7 +3,7 @@ title = "Koivunoksa"
 description = "Seasonal forest dining inspired by Finnish birch groves"
 compile_sass = true
 minify_html = true
-default_language = "en"
+default_language = "fi"
 generate_feeds = false
 
 [markdown]
