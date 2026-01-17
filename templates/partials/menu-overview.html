@@ -76,19 +76,13 @@
             </div>
             <ul class="card-dishes">
                 {% for dish in day.extra.dishes %}
-                    {% if loop.index <= 2 %}
                     <li>
                         <span data-lang-text="fi">{{ dish.name_fi }}</span>
                         <span data-lang-text="en">{{ dish.name_en | default(value=dish.name_fi) }}</span>
                         <span>{{ dish.diets }}</span>
                     </li>
-                    {% endif %}
                 {% endfor %}
             </ul>
-            <a class="view-detail" href="#daily-{{ day.slug }}" data-day-link="{{ day.slug }}" role="button">
-                <span data-lang-text="en">See plates</span>
-                <span data-lang-text="fi">Näytä annokset</span>
-            </a>
         </article>
         {% endfor %}
     </div>

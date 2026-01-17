@@ -12,69 +12,10 @@
 {% include "partials/hero.html" %}
 {% include "partials/story.html" %}
 {% include "partials/menu-overview.html" %}
-{% include "partials/daily.html" %}
 {% include "partials/instagram.html" %}
 {% endblock content %}
 
 {% block scripts %}
-<script>
-    (function() {
-        const dayTabs = Array.from(document.querySelectorAll('[data-day-tab]'));
-        const activatePanel = (day) => {
-            dayTabs.forEach(btn => {
-                btn.classList.toggle('is-active', btn.dataset.dayTab === day);
-            });
-            document.querySelectorAll('[data-day-panel]').forEach(panel => {
-                panel.classList.toggle('is-active', panel.dataset.dayPanel === day);
-            });
-        };
-
-        dayTabs.forEach(btn => {
-            btn.addEventListener('click', () => activatePanel(btn.dataset.dayTab));
-        });
-
-        const getHashDay = () => {
-            const hash = window.location.hash;
-            if (hash && hash.startsWith('#daily-')) {
-                return hash.replace('#daily-', '');
-            }
-            return null;
-        };
-
-        document.querySelectorAll('[data-day-link]').forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const slug = link.dataset.dayLink;
-                if (!slug) return;
-                activatePanel(slug);
-                const section = document.getElementById('daily');
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    history.pushState(null, null, '#daily-' + slug);
-                }
-            });
-        });
-
-        const pickDefaultDay = () => {
-            const slugByDay = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
-            const todaySlug = slugByDay[new Date().getDay()];
-            const available = dayTabs.map(btn => btn.dataset.dayTab);
-            if (available.includes(todaySlug)) {
-                return todaySlug;
-            }
-            if (available.includes('monday')) {
-                return 'monday';
-            }
-            return available[0];
-        };
-
-        const hashDay = getHashDay();
-        const defaultDay = hashDay || pickDefaultDay();
-        if (defaultDay) {
-            activatePanel(defaultDay);
-        }
-    })();
-</script>
 {% set embed_posts = config.extra.instagram_embed.posts | default(value=[]) %}
 {% if embed_posts | length > 0 or (config.extra.instagram_embed.permalink and config.extra.instagram_embed.permalink | length > 0) %}
 <script async src="https://www.instagram.com/embed.js"></script>
